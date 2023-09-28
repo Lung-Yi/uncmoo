@@ -6,4 +6,4 @@ figures/
 job_uncmoo/
 RESULTS/
 docs/
-test_scripts/
+test_scripts/*.ipynb
