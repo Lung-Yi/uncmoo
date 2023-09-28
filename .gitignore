@@ -1,0 +1,9 @@
+./*.txt
+./*.ipynb
+chemprop_unc/job
+chemprop_unc/save_models/
+figures/
+job_uncmoo/
+RESULTS/
+docs/
+test_scripts/
