@@ -1,7 +1,7 @@
 ./*.txt
-./*.ipynb
+*.ipynb
 chemprop_unc/job
-chemprop_unc/save_models/
+chemprop_unc/save_models/save_models_2_backup
 figures/
 job_uncmoo/
 RESULTS/
