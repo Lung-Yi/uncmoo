@@ -6,19 +6,21 @@ import pandas as pd
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--dataset', type=str, choices=["docking", "docking_all", "organic_emitter", "hce_advanced", "hce_simple", "hce_all"])
+    parser.add_argument('--dataset', type=str, choices=["docking", "docking_all", "organic_emitter", "hce_advanced", "hce_simple", "hce_all", "reactivity"])
     args = parser.parse_args()
 
     if args.dataset in ["docking", "docking_all"]:
         column_names = ["1syh score", "4lde score", "6y2f score"]
     elif args.dataset == "organic_emitter":
-        column_names = ["singlet-triplet value", "oscillator strength", "multi-objective value"]
+        column_names = ["singlet-triplet value", "oscillator strength", "abs_diff_vee"]
     elif args.dataset == "hce_advanced":
         column_names = ["pce_pcbm_sas", "pce_pcdtbt_sas"]
     elif args.dataset == "hce_simple":
         column_names = ["dipm", "gap", "lumo", "combined"]
     elif args.dataset == "hce_all":
         column_names = ["dipm", "gap", "lumo", "combined", "pce_pcbm_sas", "pce_pcdtbt_sas"]
+    elif args.dataset == "reactivity":
+        column_names = ["Ea", "Er"]
     else:
         raise ValueError("Not implement the calculation function:", args.dataset)
 
@@ -48,7 +50,3 @@ if __name__ == '__main__':
     with open(os.path.join(save_path, "cal_dict.pkl"), "wb") as f:
         pickle.dump(save_dict, f)
     all_data.to_csv(os.path.join(save_path, "cal_results.csv"), index=False)
-    
-
-    
-

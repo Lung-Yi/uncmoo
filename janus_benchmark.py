@@ -1,5 +1,5 @@
 from uncmoo.pred_utils import DockingScorePredictor, OrganicEmitterScorePredictor, HCEPredictor, \
-                                SeparateOrganicEmitterScorePredictor
+                                SeparateOrganicEmitterScorePredictor, ReactivityPredictor
 from uncmoo.args import JanusArgs, CommonArgs
 import pandas as pd
 from uncmoo.janus_utils import ModifiedJanus
@@ -42,6 +42,8 @@ if __name__ == "__main__":
 
     elif args.benchmark_dataset in ["hce_advanced", "hce_simple"]:
         predict_func = HCEPredictor
+    elif args.benchmark_dataset == "reactivity":
+        predict_func = ReactivityPredictor
     else:
         raise ValueError("Not supporting this dataset {}.".format(args.benchmark_dataset))
 
@@ -119,7 +121,15 @@ if __name__ == "__main__":
         raise ValueError("Not supporting the fitness method: {}".format(args.fitness_method))
     
     top_data = pd.read_csv(args.start_smiles_path)
-    top_data = top_data.sort_values(by='normalized_scores', ascending=False)
+    if len(target_objective_dict) != 1:
+        top_data = top_data.sort_values(by='normalized_scores', ascending=False)
+    else:
+        objective = args.target_objective[0]
+        if objective == "maximize":
+            top_data = top_data.sort_values(by=args.target_columns[0], ascending=False)
+        elif objective == "minimize":
+            top_data = top_data.sort_values(by=args.target_columns[0], ascending=True)
+
     top_data = top_data[["smiles"]]
     top_data = top_data[:args.n_sample]
     sample_data_file = "start_smiles_top_{}".format(args.n_sample) + ".csv"

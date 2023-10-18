@@ -180,14 +180,14 @@ class ChempropEvidentialUncertaintyPredictor(ABC):
         return self.calc_utopian_distance_fitness(smiles_list) + self.batch_penalty(smiles_list)
 
 
-class ChempropEnsembleEpistemicPredictor():
+class ChempropEnsembleMVEPredictor(ABC):
     def __init__(self, model_path, batch_size=2048, device="cuda" if torch.cuda.is_available() else "cpu"):
         self.model_path = model_path
         arguments = [
             '--test_path', None,
             '--preds_path', tempfile.NamedTemporaryFile().name,
             '--checkpoint_dir', model_path,
-            '--uncertainty_method', "ensemble",
+            '--uncertainty_method', "mve",
         ]
         args = PredictArgs().parse_args(arguments)
 
@@ -330,3 +330,166 @@ class ChempropEnsembleEpistemicPredictor():
     def batch_utopian_distance_fitness(self, smiles_list):
         return self.calc_utopian_distance_fitness(smiles_list) + self.batch_penalty(smiles_list)
 
+
+class ChempropUncertaintyPredictor(ABC):
+    def __init__(self, model_path, uncertainty_method, batch_size=2048, device="cuda" if torch.cuda.is_available() else "cpu"):
+        self.model_path = model_path
+        arguments = [
+            '--test_path', None,
+            '--preds_path', tempfile.NamedTemporaryFile().name,
+            '--checkpoint_dir', model_path,
+            '--uncertainty_method', uncertainty_method,
+        ]
+        args = PredictArgs().parse_args(arguments)
+
+        self.batch_size = batch_size
+        self.device = torch.device(device)
+        self.args, self.train_args, self.models, self.scalers, self.num_tasks, self.task_names = load_model(args)
+        for model in self.models:
+            model = model.to(self.device)
+        self.args.num_workers = 0
+
+    def predict(self, smiles_list):
+        mean, total_uncertainty = make_predictions(
+                self.args,
+                smiles=[[s] for s in smiles_list],
+                model_objects=(self.args, self.train_args, self.models, self.scalers, self.num_tasks, self.task_names),
+                calibrator = None,
+                return_invalid_smiles = False,
+                return_index_dict = False,
+                return_uncertainty = True,
+            )
+        return np.array(mean), np.array(total_uncertainty)
+    
+    def load_target_cutoff(self, target_cutoff_dict, target_objective_dict):
+        assert set(target_objective_dict.values()).issubset(set(["maximize", "minimize"])) 
+        self.target_cutoff_dict = target_cutoff_dict
+        self.target_objective_dict = target_objective_dict
+        return
+    
+    def load_target_weights(self, target_weight_dict):
+        self.target_weight_dict = target_weight_dict
+        return
+    
+    def load_target_scaler(self, target_scaler_dict, target_objective_dict):
+        assert set(target_objective_dict.values()).issubset(set(["maximize", "minimize"]))
+        self.target_scaler_dict = target_scaler_dict
+        self.target_objective_dict = target_objective_dict
+        return
+    
+    def load_utopian_objective(self, target_utopian_dict, target_objective_dict):
+        assert set(target_objective_dict.values()).issubset(set(["maximize", "minimize"]))
+        self.target_utopian_dict = target_utopian_dict
+        self.target_objective_dict = target_objective_dict
+        return
+
+    def calc_multiobjective_fitness(self, smiles_list):
+        """ Calculate the multi-objective uncertainty-aware fitness. 
+        If the input arguments do not contain all the tasks that chemprop has trained on, run the subset optimization or single-objective."""
+        fitness_list = []
+        preds, variance = self.predict(smiles_list)
+        for ii, target in enumerate(self.task_names):
+            objective = self.target_objective_dict.get(target)
+            cutoff = self.target_cutoff_dict.get(target)
+            if (objective == None) or (cutoff == None):
+                continue
+            prob_list = []
+            for pred, var in zip(preds[:, ii], variance[:, ii]):
+                cdf = gaussian_cdf(pred, var, cutoff)
+                prob_list.append(cdf)
+            prob = np.array(prob_list)
+            if objective == "maximize":
+                prob = 1 - prob
+            fitness_list.append(prob)
+        return np.array(fitness_list)
+    
+    def calc_overall_fitness(self, smiles_list):
+        multiobjective_fitness = self.calc_multiobjective_fitness(smiles_list)
+        overall_fitness = np.prod(multiobjective_fitness, axis=0)
+        return overall_fitness
+    
+    def calc_scalarization_fitness(self, smiles_list):
+        preds, _ = self.predict(smiles_list)
+        overall_fitness = 0
+        for ii, target in enumerate(self.task_names):
+            weight = self.target_weight_dict.get(target)
+            if weight == None:
+                continue
+            overall_fitness += weight*preds[:, ii]
+        return overall_fitness
+    
+    def calc_scaler_fitness(self, smiles_list):
+        preds, _ = self.predict(smiles_list)
+        overall_fitness = 0
+        for ii, target in enumerate(self.task_names):
+            objective = self.target_objective_dict.get(target)
+            mean_std_tuple = self.target_scaler_dict.get(target)
+            if (objective == None) or (mean_std_tuple == None):
+                continue
+            else:
+                mean, std = mean_std_tuple
+            
+            if objective == "maximize":
+                overall_fitness += (preds[:, ii] - mean) / std
+            elif objective == "minimize":
+                overall_fitness += (preds[:, ii] - mean) / std * (-1)
+        return overall_fitness
+    
+    def calc_utopian_distance_fitness(self, smiles_list):
+        """ Only used in multi-objective fitness calculation. """
+        preds, _ = self.predict(smiles_list)
+        overall_fitness = 0
+        for ii, target in enumerate(self.task_names):
+            objective = self.target_objective_dict[target]
+            utopian_point, std = self.target_utopian_dict[target]
+            if objective == "maximize":
+                fitness = (utopian_point - preds[:, ii]) / std
+                fitness[fitness < 0] = 0
+                overall_fitness += fitness
+            elif objective == "minimize":
+                fitness = (preds[:, ii] - utopian_point) / std
+                fitness[fitness < 0] = 0
+                overall_fitness += fitness
+        return overall_fitness * (-1)
+    
+    def single_overall_fitness(self, single_smiles):
+        """Single prediction is very slow, not recommended. """
+        fitness = self.calc_overall_fitness([single_smiles])
+        return fitness[0]
+    
+    def single_scalarization_fitness(self, single_smiles):
+        fitness = self.calc_scalarization_fitness([single_smiles])
+        return fitness[0]
+    
+    def single_scaler_fitness(self, single_smiles):
+        fitness = self.calc_scaler_fitness([single_smiles])
+        return fitness[0]
+    
+    @abstractmethod
+    def penalty(self, smiles):
+        """All the model inherting this must include the penalty fuinction to penalize the specific SMILES."""
+        return 0
+
+    def batch_penalty(self, smiles_list):
+        return np.array([self.penalty(smiles) for smiles in smiles_list])
+        
+    def batch_uncertainty_fitness(self, smiles_list):
+        return self.calc_overall_fitness(smiles_list) + self.batch_penalty(smiles_list)
+
+    def uncertainty_fitness(self, smiles):
+        return self.single_overall_fitness(smiles) + self.penalty(smiles)
+    
+    def batch_scalarization_fitness(self, smiles_list):
+        return self.calc_scalarization_fitness(smiles_list) + self.batch_penalty(smiles_list)
+
+    def scalarization_fitness(self, smiles):
+        return self.single_scalarization_fitness(smiles) + self.penalty(smiles)
+    
+    def batch_scaler_fitness(self, smiles_list):
+        return self.calc_scaler_fitness(smiles_list) + self.batch_penalty(smiles_list)
+
+    def scaler_fitness(self, smiles):
+        return self.single_scaler_fitness(smiles) + self.penalty(smiles)
+    
+    def batch_utopian_distance_fitness(self, smiles_list):
+        return self.calc_utopian_distance_fitness(smiles_list) + self.batch_penalty(smiles_list)

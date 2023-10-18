@@ -2,54 +2,39 @@ import numpy as np
 import torch
 from scipy.stats import norm
 from rdkit import Chem
+import rdkit.Chem.rdmolops as rdcmo
+import rdkit.Chem.Descriptors as rdcd
+import os
+
+import rdkit
+from rdkit.Chem import RDConfig
+import sys
+sys.path.append(os.path.join(RDConfig.RDContribDir, 'SA_Score'))
+import sascorer
 
 from chemprop.data import get_data_from_smiles, MoleculeDataLoader, MoleculeDataset
 from chemprop.utils import load_args, load_checkpoint, load_scalers
 from chemprop.train import predict
 from Tartarus.tartarus.docking import apply_filters
-from .chemprop_base_model import ChempropEnsembleEpistemicPredictor, ChempropEvidentialUncertaintyPredictor
+from .chemprop_base_model import ChempropEnsembleMVEPredictor, ChempropEvidentialUncertaintyPredictor, ChempropUncertaintyPredictor
 
     
-class DockingScorePredictor(ChempropEvidentialUncertaintyPredictor):
+class DockingScorePredictor(ChempropUncertaintyPredictor):
     def __init__(self,model_path, batch_size=2048, device="cuda" if torch.cuda.is_available() else "cpu"):
-        super().__init__(model_path, batch_size=batch_size, device=device)
+        super().__init__(model_path, uncertainty_method="evidential_total", batch_size=batch_size, device=device)
 
     def penalty(self, smiles):
+        mol = Chem.MolFromSmiles(smiles)
         if not apply_filters(smiles):
+            return -10000
+        elif mol.GetNumAtoms() > 48:
             return -10000
         else:
             return 0
         
-    # def batch_docking_penalty(self, smiles_list):
-    #     return np.array([self.docking_penalty(smiles) for smiles in smiles_list])
-    
-    # def batch_uncertainty_fitness(self, smiles_list):
-    #     return self.calc_overall_fitness(smiles_list) + self.batch_docking_penalty(smiles_list)
-
-    # def uncertainty_fitness(self, smiles):
-    #     return self.single_overall_fitness(smiles) + self.docking_penalty(smiles)
-    
-    # def batch_scalarization_fitness(self, smiles_list):
-    #     return self.calc_scalarization_fitness(smiles_list) + self.batch_docking_penalty(smiles_list)
-
-    # def scalarization_fitness(self, smiles):
-    #     return self.single_scalarization_fitness(smiles) + self.docking_penalty(smiles)
-
-    # def batch_scaler_fitness(self, smiles_list):
-    #     return self.calc_scaler_fitness(smiles_list) + self.batch_docking_penalty(smiles_list)
-    
-    # def scaler_fitness(self, smiles):
-    #     return self.single_scaler_fitness(smiles) + self.docking_penalty(smiles)
-    
-    # def batch_utopian_distance_fitness(self, smiles_list):
-    #     return self.calc_utopian_distance_fitness(smiles_list) + self.batch_docking_penalty(smiles_list)
-    
-class OrganicEmitterScorePredictor(ChempropEnsembleEpistemicPredictor): # ChempropEvidentialUncertaintyPredictor
+class OrganicEmitterScorePredictor(ChempropUncertaintyPredictor): # ChempropEvidentialUncertaintyPredictor
     def __init__(self,model_path, batch_size=2048, device="cuda" if torch.cuda.is_available() else "cpu"):
-        super().__init__(model_path, batch_size=batch_size, device=device)
-
-    def batch_oe_penalty(self, smiles_list):
-        return np.array([self.oe_penalty(smiles) for smiles in smiles_list])
+        super().__init__(model_path, uncertainty_method="mve", batch_size=batch_size, device=device)
 
     def penalty(self, smiles):
         mol = Chem.MolFromSmiles(smiles)
@@ -60,31 +45,12 @@ class OrganicEmitterScorePredictor(ChempropEnsembleEpistemicPredictor): # Chempr
         else:
             return 0
         
-    # def batch_uncertainty_fitness(self, smiles_list):
-    #     return self.calc_overall_fitness(smiles_list) + self.batch_oe_penalty(smiles_list)
-
-    # def uncertainty_fitness(self, smiles):
-    #     return self.single_overall_fitness(smiles) + self.oe_penalty(smiles)
-    
-    # def batch_scalarization_fitness(self, smiles_list):
-    #     return self.calc_scalarization_fitness(smiles_list) + self.batch_oe_penalty(smiles_list)
-
-    # def scalarization_fitness(self, smiles):
-    #     return self.single_scalarization_fitness(smiles) + self.oe_penalty(smiles)
-    
-    # def batch_scaler_fitness(self, smiles_list):
-    #     return self.calc_scaler_fitness(smiles_list) + self.batch_oe_penalty(smiles_list)
-
-    # def scaler_fitness(self, smiles):
-    #     return self.single_scaler_fitness(smiles) + self.oe_penalty(smiles)
-    
-    # def batch_utopian_distance_fitness(self, smiles_list):
-    #     return self.calc_utopian_distance_fitness(smiles_list) + self.batch_oe_penalty(smiles_list)
 
 def IsRadicalOrCharge(mol):
-    for atom in mol.GetAtoms():
-        if atom.GetNumRadicalElectrons(): return True
-        if atom.GetFormalCharge(): return True
+    if rdcmo.GetFormalCharge(mol) != 0:
+        return True
+    elif rdcd.NumRadicalElectrons(mol) != 0:
+        return True
     return False
 
 class SeparateOrganicEmitterScorePredictor():
@@ -184,26 +150,51 @@ class HCEPredictor(ChempropEvidentialUncertaintyPredictor):
         else:
             return 0    
 
-    # def batch_hce_penalty(self, smiles_list):
-    #     return np.array([self.hce_penalty(smiles) for smiles in smiles_list])
+def substructure_preserver(mol):
+    """
+    Check for substructure violates
+    Return True: contains a substructure violation
+    Return False: No substructure violation
+    """        
     
-    # def batch_uncertainty_fitness(self, smiles_list):
-    #     return self.calc_overall_fitness(smiles_list) + self.batch_hce_penalty(smiles_list)
+    mol = rdkit.Chem.rdmolops.AddHs(mol) # Note: Hydrogens need to be added for the substructure code to work!
+    
+    if mol.HasSubstructMatch(rdkit.Chem.MolFromSmarts('[H][C@@]1(*)[C@;R2](*)2[C@@]34[C@;R2]5(*)[C;R1](*)=[C;R1](*)[C@;R2](*)([*;R2]5)[C@@]3([*;R1]4)[C@](*)([*;R2]2)[C@@;R1]1([*])[H]')) == True:
+        return True # Has substructure! 
+    else: 
+        return False # Molecule does not have substructure!
+    
+    
+def substructure_violations(mol):
+    """
+    Check for substructure violates
+    Return True: contains a substructure violation
+    Return False: No substructure violation
+    """
+    violation = False
+    forbidden_fragments = ['[C-]', '[S-]', '[O-]', '[N-]', '[*+]', '[*-]' '[PH]', '[pH]', '[N&X5]', '*=[S,s;!R]', '[S&X3]', '[S&X4]', '[S&X5]', '[S&X6]', '[P,p]', '[B,b,N,n,O,o,S,s]~[F,Cl,Br,I]', '*=*=*', '*#*', '[O,o,S,s]~[O,o,S,s]', '[N,n,O,o,S,s]~[N,n,O,o,S,s]~[N,n,O,o,S,s]', '[N,n,O,o,S,s]~[N,n,O,o,S,s]~[C,c]=,:[O,o,S,s,N,n;!R]', '*=N-[*;!R]', '*~[N,n,O,o,S,s]-[N,n,O,o,S,s;!R]']
+    for ni in range(len(forbidden_fragments)):
+        
+        if mol.HasSubstructMatch(Chem.MolFromSmarts(forbidden_fragments[ni])) == True:
+            violation = True
+            break
+        else:
+            continue
 
-    # def uncertainty_fitness(self, smiles):
-    #     return self.single_overall_fitness(smiles) + self.hce_penalty(smiles)
-    
-    # def batch_scalarization_fitness(self, smiles_list):
-    #     return self.calc_scalarization_fitness(smiles_list) + self.batch_hce_penalty(smiles_list)
+    return violation
+class ReactivityPredictor(ChempropUncertaintyPredictor):
+    def __init__(self,model_path, batch_size=2048, device="cuda" if torch.cuda.is_available() else "cpu"):
+        super().__init__(model_path, uncertainty_method="evidential_total", batch_size=batch_size, device=device)
 
-    # def scalarization_fitness(self, smiles):
-    #     return self.single_scalarization_fitness(smiles) + self.hce_penalty(smiles)
-
-    # def batch_scaler_fitness(self, smiles_list):
-    #     return self.calc_scaler_fitness(smiles_list) + self.batch_hce_penalty(smiles_list)
-    
-    # def scaler_fitness(self, smiles):
-    #     return self.single_scaler_fitness(smiles) + self.hce_penalty(smiles)
-    
-    # def batch_utopian_distance_fitness(self, smiles_list):
-    #     return self.calc_utopian_distance_fitness(smiles_list) + self.batch_hce_penalty(smiles_list)
+    def penalty(self, smiles):
+        mol = Chem.MolFromSmiles(smiles)
+        if not substructure_preserver(mol): # need to preserve the core substructure for the specific reaction
+            return -10000
+        elif substructure_violations(mol): # cannot contain some functional groups
+            return -10000
+        elif sascorer.calculateScore(mol) > 6.0: # need to generate molecules under SAscore constraint 
+            return -10000
+        elif mol.GetNumAtoms() > 55:
+            return -10000
+        else:
+            return 0

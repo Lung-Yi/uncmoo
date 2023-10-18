@@ -1,4 +1,4 @@
-./*.txt
+*.txt
 *.ipynb
 chemprop_unc/job
 chemprop_unc/save_models/save_models_2_backup
@@ -7,3 +7,4 @@ job_uncmoo/
 RESULTS/
 docs/
 test_scripts/*.ipynb
+test_scripts/*.svg

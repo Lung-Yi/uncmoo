@@ -1,2 +1,2 @@
-from .pred import ChempropEvidentialUncertaintyPredictor, DockingScorePredictor, OrganicEmitterScorePredictor, HCEPredictor, SeparateOrganicEmitterScorePredictor
-from .chemprop_base_model import ChempropEnsembleEpistemicPredictor
+from .pred import DockingScorePredictor, OrganicEmitterScorePredictor, HCEPredictor, SeparateOrganicEmitterScorePredictor, ReactivityPredictor
+from .chemprop_base_model import ChempropEnsembleMVEPredictor, ChempropEvidentialUncertaintyPredictor, ChempropUncertaintyPredictor

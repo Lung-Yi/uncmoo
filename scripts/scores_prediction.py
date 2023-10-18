@@ -5,22 +5,26 @@ import pandas as pd
 import numpy as np
 import sys
 sys.path.append("../")
-from uncmoo.pred_utils import DockingScorePredictor, OrganicEmitterScorePredictor, HCEPredictor
+from uncmoo.pred_utils import DockingScorePredictor, OrganicEmitterScorePredictor, HCEPredictor, ReactivityPredictor
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--dataset', type=str, choices=["docking", "docking_all", "organic_emitter", "hce_advanced", "hce_simple", "hce_all"])
+    parser.add_argument('--dataset', type=str, choices=["docking", "docking_all", "organic_emitter", "hce_advanced", "hce_simple", "hce_all", "reactivity"])
     args = parser.parse_args()
 
     if args.dataset in ["docking", "docking_all"]:
         column_names = ["1syh score", "4lde score", "6y2f score"]
-        model_path = "../chemprop_unc/save_models/docking/try_80/fold_0/model_0/model.pt"
+        model_path = "../chemprop_unc/save_models/docking/evidential/fold_0"
         unc_model = DockingScorePredictor(model_path)
     elif args.dataset == "organic_emitter":
-        column_names = ["singlet-triplet value", "oscillator strength", "multi-objective value"]
+        column_names = ["singlet-triplet value", "oscillator strength", "abs_diff_vee"]
         model_path = "../chemprop_unc/save_models/organic_emitter/ensemble_mve/fold_0"
         unc_model = OrganicEmitterScorePredictor(model_path)
+    elif args.dataset == "reactivity":
+        column_names = ["Ea", "Er"]
+        model_path = "../chemprop_unc/save_models/reactivity/evidential_final/fold_0"
+        unc_model = ReactivityPredictor(model_path)
     # elif args.dataset == "hce_advanced":
     #     column_names = ["pce_pcbm_sas", "pce_pcdtbt_sas"]
     # elif args.dataset == "hce_simple":
