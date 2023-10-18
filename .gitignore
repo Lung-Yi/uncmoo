@@ -6,5 +6,5 @@ figures/
 job_uncmoo/
 RESULTS/
 docs/
-test_scripts/*.ipynb
-test_scripts/*.svg
+test_scripts/
+test_scripts/plot_results/
