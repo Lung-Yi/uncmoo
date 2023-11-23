@@ -13,7 +13,7 @@ if __name__ == '__main__':
         parent_dir_list = ["docking_1syh", "docking_4lde", "docking_6y2f"]
         parent_dir_list = [os.path.join("../RESULTS", x) for x in parent_dir_list]
     elif args.dataset == "organic_emitter":
-        parent_dir_list = ["organic_emitter", "organic_emitter_os"]
+        parent_dir_list = ["organic_emitter", "organic_emitter_os", "organic_emitter_stv"]
         parent_dir_list = [os.path.join("../RESULTS", x) for x in parent_dir_list]
     elif args.dataset == "reactivity":
         parent_dir_list = ["reactivity", "reactivity_activation_energy", "reactivity_reaction_energy"]
@@ -22,14 +22,14 @@ if __name__ == '__main__':
         parent_dir = os.path.join("../RESULTS", args.dataset)
         parent_dir_list = [parent_dir]
 
-    sub_dir_name = ["janus_scaler", "janus_uncertainty", "janus_utopian", "janus_utopian_cutoff"]
+    sub_dir_name = ["janus_scaler", "janus_uncertainty", "janus_uncertainty_cutoff", "janus_utopian", "janus_utopian_cutoff", "janus_hybrid"]
+    # ["janus_scaler", "janus_uncertainty", "janus_uncertainty_cutoff", "janus_utopian", "janus_utopian_cutoff", "janus_hybrid"]
     data_dir = []
 
     for parent_dir in parent_dir_list:
         for sub_dir in sub_dir_name:
             new_dir = [os.path.join(parent_dir, sub_dir+"_{}".format(fold)) for fold in range(1, args.fold+1)]
             data_dir += new_dir
-
     total_smiles_list = []
     for sub_dir in data_dir:
         # explore SMILES
@@ -50,6 +50,18 @@ if __name__ == '__main__':
             continue
         line = data.strip()
         total_smiles_list += line.split(' ')[:20]
+        # best within each generation step
+        filename = os.path.join(sub_dir, "generation_all_best.txt")
+        smiles_list = []
+        try:
+            with open(filename, "r") as f:
+                data = f.readlines()
+        except:
+            continue
+        for line in data:
+            smiles_list.append(line.split(", ")[1])
+        total_smiles_list += smiles_list  
+      
 
     total_smiles_set = set(total_smiles_list)
     # load the file that has been previously calculated

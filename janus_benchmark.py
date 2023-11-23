@@ -117,6 +117,26 @@ if __name__ == "__main__":
             fitness_function = unc_model.batch_utopian_distance_fitness
         else:
             raise ValueError("Not Implement")
+    elif args.fitness_method == "hybrid":
+        assert len(args.target_columns)*2 == len(args.target_objective)*2 == len(args.target_utopian) == len(args.target_scaler)
+        target_utopian_dict = {}
+        target_objective_dict = {}
+        target_scaler_dict = {}
+        for i, (target, objective) in enumerate(zip(args.target_columns, args.target_objective)):
+            target_objective_dict.update({target: objective})
+            target_utopian_dict.update({target: (args.target_utopian[2*i], args.target_utopian[2*i+1])})
+            target_scaler_dict.update({target: (args.target_scaler[2*i], args.target_scaler[2*i+1])})
+        if single_model:
+            unc_model = predict_func(args.surrogate_model_path[0])
+        else:
+            unc_model = predict_func(model_path_dict)
+        unc_model.load_utopian_objective(target_utopian_dict, target_objective_dict)
+        unc_model.load_target_scaler(target_scaler_dict, target_objective_dict)
+        if args.batch_pred:
+            fitness_function = unc_model.batch_hybrid_fitness
+        else:
+            raise ValueError("Not Implement")
+
     else:
         raise ValueError("Not supporting the fitness method: {}".format(args.fitness_method))
     

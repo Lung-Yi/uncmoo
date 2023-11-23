@@ -2,9 +2,10 @@
 *.ipynb
 chemprop_unc/job
 chemprop_unc/save_models/save_models_2_backup
-figures/
+chemprop_unc/save_models/hce
 job_uncmoo/
 RESULTS/
 docs/
 test_scripts/
 test_scripts/plot_results/
+scripts/

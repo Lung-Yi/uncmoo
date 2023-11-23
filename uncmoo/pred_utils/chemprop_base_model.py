@@ -452,6 +452,16 @@ class ChempropUncertaintyPredictor(ABC):
                 overall_fitness += fitness
         return overall_fitness * (-1)
     
+    def calc_hybrid_fitness(self, smiles_list):
+        """ When the prediction is not reached utopian point, use utopian distance. Otherwise, use scaler fitness. """
+        overall_utopian_fitness = self.calc_utopian_distance_fitness(smiles_list)
+        overall_scaler_fitness = self.calc_scaler_fitness(smiles_list)
+        mask = np.ones(overall_scaler_fitness.shape)
+        mask[np.nonzero(overall_utopian_fitness)[0]] = 0
+        overall_hybrid_fitness = overall_utopian_fitness + mask * overall_scaler_fitness
+        return overall_hybrid_fitness
+
+    
     def single_overall_fitness(self, single_smiles):
         """Single prediction is very slow, not recommended. """
         fitness = self.calc_overall_fitness([single_smiles])
@@ -493,3 +503,6 @@ class ChempropUncertaintyPredictor(ABC):
     
     def batch_utopian_distance_fitness(self, smiles_list):
         return self.calc_utopian_distance_fitness(smiles_list) + self.batch_penalty(smiles_list)
+    
+    def batch_hybrid_fitness(self, smiles_list):
+        return self.calc_hybrid_fitness(smiles_list) + self.batch_penalty(smiles_list)

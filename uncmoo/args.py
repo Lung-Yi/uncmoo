@@ -6,7 +6,7 @@ class CommonArgs(Tap):
     """:class:`CommonArgs` contains arguments that are used in both :class:`Janus` and :class:`PredictArgs`."""
     benchmark_dataset: Literal['docking', 'organic_emitter', 'hce_advanced', 'hce_simple', 'reactivity']
     """Benchmark dataset."""
-    fitness_method: Literal['uncertainty', 'scalarization', 'scaler', 'utopian']
+    fitness_method: Literal['uncertainty', 'scalarization', 'scaler', 'utopian', 'hybrid']
     """What method to calculate the fitness."""
     n_sample: int = 1000
     """Number of starting molecules used in the pool of genetic algoerithm."""
