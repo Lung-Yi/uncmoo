@@ -1,5 +1,4 @@
 *.txt
-*.ipynb
 chemprop_unc/job
 chemprop_unc/save_models/save_models_2_backup
 chemprop_unc/save_models/hce
