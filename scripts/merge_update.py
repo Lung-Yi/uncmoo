@@ -6,12 +6,12 @@ import pandas as pd
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--dataset', type=str, choices=["docking", "docking_all", "organic_emitter", "hce_advanced", "hce_simple", "hce_all", "reactivity"])
+    parser.add_argument('--dataset', type=str, choices=["docking", "docking_all", "organic_emitter", "hce_advanced", "hce_simple", "hce_all", "reactivity", "organic_emitter_all", "reactivity_all"])
     args = parser.parse_args()
 
     if args.dataset in ["docking", "docking_all"]:
         column_names = ["1syh score", "4lde score", "6y2f score"]
-    elif args.dataset == "organic_emitter":
+    elif args.dataset in ["organic_emitter", "organic_emitter_all"]:
         column_names = ["singlet-triplet value", "oscillator strength", "abs_diff_vee"]
     elif args.dataset == "hce_advanced":
         column_names = ["pce_pcbm_sas", "pce_pcdtbt_sas"]
@@ -19,7 +19,7 @@ if __name__ == '__main__':
         column_names = ["dipm", "gap", "lumo", "combined"]
     elif args.dataset == "hce_all":
         column_names = ["dipm", "gap", "lumo", "combined", "pce_pcbm_sas", "pce_pcdtbt_sas"]
-    elif args.dataset == "reactivity":
+    elif args.dataset in ["reactivity", "reactivity_all"]:
         column_names = ["Ea", "Er"]
     else:
         raise ValueError("Not implement the calculation function:", args.dataset)

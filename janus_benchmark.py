@@ -1,4 +1,4 @@
-from uncmoo.pred_utils import DockingScorePredictor, OrganicEmitterScorePredictor, HCEPredictor, \
+from uncmoo.pred_utils import DockingScorePredictor, OrganicEmitterScorePredictor, \
                                 SeparateOrganicEmitterScorePredictor, ReactivityPredictor
 from uncmoo.args import JanusArgs, CommonArgs
 import pandas as pd

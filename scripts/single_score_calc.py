@@ -6,7 +6,7 @@ import argparse
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--smiles', type=str)
-    parser.add_argument('--dataset', type=str, choices=["docking", "docking_all","organic_emitter", "hce_advanced", "hce_simple", "hce_all", "reactivity"])
+    parser.add_argument('--dataset', type=str, choices=["docking", "docking_all","organic_emitter", "hce_advanced", "hce_simple", "hce_all", "reactivity", "reactivity_all", "organic_emitter_all"])
     args = parser.parse_args()
 
     if args.dataset in ["docking", "docking_all"]:
@@ -19,7 +19,7 @@ if __name__ == '__main__':
         calc_function = docking_scores
         column_names = ["1syh score", "4lde score", "6y2f score"]
 
-    elif args.dataset == "organic_emitter":
+    elif args.dataset in ["organic_emitter", "organic_emitter_all"]:
         from tartarus import tadf
         def organic_emitter_scores(smiles):
             try:
@@ -29,7 +29,7 @@ if __name__ == '__main__':
             if st == -10000:
                 return st, osc, 10000 # the goal is to minimize the abs_diff_vee
             else:
-                return st, osc, (combined - st - osc)*(-1) # return the real abs_diff_vee
+                return -st, osc, (combined + st - osc)*(-1) # return the real abs_diff_vee
         calc_function = organic_emitter_scores
         column_names = ["singlet-triplet value", "oscillator strength", "abs_diff_vee"]
 
@@ -54,7 +54,7 @@ if __name__ == '__main__':
             return dipm, gap, lumo, combined, pce_pcbm_sas, pce_pcdtbt_sas
         calc_function = hce_all_scores
         column_names = ["dipm", "gap", "lumo", "combined", "pce_pcbm_sas", "pce_pcdtbt_sas"]
-    elif args.dataset == "reactivity":
+    elif args.dataset in ["reactivity", "reactivity_all"]:
         from tartarus import reactivity
         def reactivity_scores(smiles):
             Ea, Er, sum_Ea_Er, diff_Ea_Er  = reactivity.get_properties(smiles, n_procs=1)

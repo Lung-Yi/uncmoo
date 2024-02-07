@@ -408,17 +408,20 @@ class ChempropUncertaintyPredictor(ABC):
         overall_fitness = np.prod(multiobjective_fitness, axis=0)
         return overall_fitness
     
-    def calc_scalarization_fitness(self, smiles_list):
+    def calc_weighted_sum_fitness(self, smiles_list):
         preds, _ = self.predict(smiles_list)
         overall_fitness = 0
         for ii, target in enumerate(self.task_names):
             weight = self.target_weight_dict.get(target)
-            if weight == None:
-                continue
-            overall_fitness += weight*preds[:, ii]
+            objective = self.target_objective_dict.get(target)
+            if objective == "maximize":
+                overall_fitness += weight*preds[:, ii]
+            elif objective == "minimize":
+                overall_fitness += weight*preds[:, ii] * (-1)
         return overall_fitness
     
     def calc_scaler_fitness(self, smiles_list):
+        """ Calculate the scores after normalized scaling. """
         preds, _ = self.predict(smiles_list)
         overall_fitness = 0
         for ii, target in enumerate(self.task_names):

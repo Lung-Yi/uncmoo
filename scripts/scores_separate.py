@@ -40,7 +40,7 @@ if __name__ == '__main__':
         except:
             continue
         line = data.strip()
-        total_smiles_list += line.split(' ')[:30]
+        total_smiles_list += line.split(' ')[:20]
         # local search SMILES
         filename = os.path.join(sub_dir, "population_local_search.txt")
         try:
