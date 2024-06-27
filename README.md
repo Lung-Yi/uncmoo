@@ -14,16 +14,16 @@ bash docs/make_env.sh
 | Design Benchmark | Objective | Optimal Value | Top-15% Cutoff for Multi-objective Task |
 |------------------|-----------|---------------|----------------------------------------|
 | **Organic Emitters** | | | |
-| Singlet-triplet gap (↓) | 0.00249 (eV) | 0.571 |
-| Oscillator strength (↑) | 2.97 (-) | 0.171 |
-| Absolute difference of vertical excitation energy (↓) | 0.0573 (eV) | 1.62 |
+| | Singlet-triplet gap (↓) | 0.00249 (eV) | 0.571 |
+| | Oscillator strength (↑) | 2.97 (-) | 0.171 |
+| | Absolute difference of vertical excitation energy (↓) | 0.0573 (eV) | 1.62 |
 | **Protein Ligands** | | | |
-| 1SYH score (↓) | -10.0 (-) | - |
-| 6Y2F score (↓) | -10.0 (-) | - |
-| 4LDE score (↓) | -9.8 (-) | - |
+| | 1SYH score (↓) | -10.0 (-) | - |
+| | 6Y2F score (↓) | -10.0 (-) | - |
+| | 4LDE score (↓) | -9.8 (-) | - |
 | **Reaction Substrates** | | | |
-| Activation energy \(\Delta E^\ddag\) (↓) | 64.9 (kcal/mol) | 87.0 (maximization for multi-objective) |
-| Reaction energy \(\Delta E_r\) (↓) | -34.4 (kcal/mol) | -5.46 |
+| | Activation energy (↓) | 64.9 (kcal/mol) | 87.0 (maximization for multi-objective) |
+| | Reaction energy (↓) | -34.4 (kcal/mol) | -5.46 |
 
 ## Download the results in the paper for analysis (optional)
 ```
