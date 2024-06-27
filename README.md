@@ -72,3 +72,19 @@ python janus_benchmark.py --benchmark_data $DATASET \
                           --alphabet_path Tartarus/datasets/$ALPHATBET \
                           --target_objective minimize maximize minimize | tee log_${METHOD}_${DATASET}_${FOLD}.txt
 ```
+
+## Objective function selection for calculating the different fitness
+### Single-objective
+| Argument for `fitness_method`       | Method                         |
+|------------|--------------------------------|
+| `--uncertainty`| Probability Improvement (PI)   |
+| `--scaler`     | Greedy                         |
+| `--expected_improvement` | Expected Improvement (EI) |
+
+### Multi-objective
+| Argument for `fitness_method`       | Method                         |
+|------------|--------------------------------|
+| `--uncertainty`| Probability Improvement (PI)   |
+| `--scaler`     | Weighted Sum                   |
+| `--utopian`    | Manhattan                      |
+| `--hybrid`     | Hybrid                         |
