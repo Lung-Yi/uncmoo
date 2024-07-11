@@ -75,16 +75,16 @@ python janus_benchmark.py --benchmark_data $DATASET \
 
 ## Objective function selection for calculating the different fitness
 ### Single-objective
-| Argument for `--fitness_method`       | Method                         |
-|------------|--------------------------------|
-| `uncertainty`| Probability Improvement (PI)   |
-| `scaler`     | Greedy                         |
-| `expected_improvement` | Expected Improvement (EI) |
+| Argument for `--fitness_method` | Method                         |
+|---------------------------------|--------------------------------|
+| `uncertainty`                   | Probabilistic Improvement Optimization (PIO) |
+| `scaler`                        | Direct Objective Maximization (DOM)          |
+| `expected_improvement`          | Expected Improvement (EI)                    |
 
 ### Multi-objective
-| Argument for `--fitness_method`       | Method                         |
-|------------|--------------------------------|
-| `uncertainty`| Probability Improvement (PI)   |
-| `scaler`     | Weighted Sum                   |
-| `utopian`    | Manhattan                      |
-| `hybrid`     | Hybrid                         |
+| Argument for `--fitness_method` | Method               |
+|--------------|--------------------------------|
+| `uncertainty`| Probabilistic Improvement Optimization (PIO)  |
+| `scaler`     | Weighted Sum (WS)                             |
+| `utopian`    | Normalized Manhattan Distance (NMD)           |
+| `hybrid`     | Hybrid Approach (NMD-WS)                      |
