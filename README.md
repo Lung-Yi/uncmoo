@@ -3,7 +3,8 @@ This is a uncertainty-aware molecular design framework benchmarked on the Tartar
 
 The manuscript of this repository is in preparation.
 
-![alt text](docs/ms_1_overview_a.svg)
+<!-- ![alt text](docs/ms_1_overview_a.svg) -->
+<img src="docs/ms_1_overview_a.svg" style="width: 100%; height: auto;">
 
 ## Installation
 ```
