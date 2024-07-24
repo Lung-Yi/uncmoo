@@ -6,6 +6,16 @@ The manuscript of this repository is in preparation.
 <!-- ![alt text](docs/ms_1_overview_a.svg) -->
 <img src="docs/ms_1_overview_a.svg" style="width: 100%; height: auto;">
 
+## OS Requirements
+This repository requires to operate on **Linux** operating system.
+
+## Python Dependencies
+* Python (version >= 3.8)
+* rdkit (version >= 2022.3.4)
+* torch (versioin >= 1.12.1)
+* matplotlib (version >=3.3.4)
+* numpy (version >= 1.16.4)
+
 ## Installation
 ```
 bash docs/make_env.sh
