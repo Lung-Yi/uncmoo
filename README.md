@@ -27,9 +27,12 @@ The datasets used for training Chemporp can be found in Tartarus:
 
 https://github.com/aspuru-guzik-group/Tartarus/tree/main/datasets.
 
-1. Docking (protein ligands): [`train_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/scripts_analyze/analyze_single_objective.ipynb), 
-2. Organic emitter:
-3. Reactivity (reaction substrates): 
+1. Docking (protein ligands): [`train_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/docking/evidential/fold_0/train_full.csv), [`val_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/docking/evidential/fold_0/val_full.csv) and [`test_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/docking/evidential/fold_0/test_full.csv).
+2. Organic emitter: [`train_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/organic_emitter/ensemble_mve/fold_0/train_full.csv), [`val_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/organic_emitter/ensemble_mve/fold_0/val_full.csv) and [`test_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/organic_emitter/ensemble_mve/fold_0/test_full.csv).
+3. Reactivity (reaction substrates): [`train_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/reactivity
+/evidential_final/fold_0/train_full.csv), [`val_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/reactivity
+/evidential_final/fold_0/val_full.csv) and [`test_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/reactivity
+/evidential_final/fold_0/test_full.csv).
 
 ## Training surrogate Chemprop models for molecular property predictions.
 1. Docking dataset: 1syh, 4lde and 6y2f scores predictions.
@@ -96,7 +99,7 @@ chemprop_train \
 | | Activation energy (↓) | 64.9 (kcal/mol) | 87.0 (maximization for multi-objective) |
 | | Reaction energy (↓) | -34.4 (kcal/mol) | -5.46 |
 
-## Download the results in the paper for analysis (optional)
+## Download the molecule generation results using different optimization methods for analysis (optional)
 ```
 gdown --id '1tahu9C0EwlvCNOIXjvz96N2e34TGawyV' --output RESULTS.tar.gz
 tar zxvf RESULTS.tar.gz
