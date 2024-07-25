@@ -67,7 +67,9 @@ The single-objective molecule design results can then be found in the:
 `RESULTS/docking_4lde/janus_uncertainty_1/population_explore.txt`
 and
 `RESULTS/docking_4lde/janus_uncertainty_1/fitness_explore.txt`
+
 Further analysis of all the single-objective optimization results refers to:
+
 https://github.com/Lung-Yi/uncmoo/blob/main/scripts_analyze/analyze_single_objective.ipynb
 
 
@@ -93,7 +95,14 @@ python janus_benchmark.py --benchmark_data $DATASET \
                           --alphabet_path Tartarus/datasets/$ALPHATBET \
                           --target_objective minimize maximize minimize | tee log_${METHOD}_${DATASET}_${FOLD}.txt
 ```
+The multi-objective molecule design results can then be found in the:
+`RESULTS/organic_emitter/janus_uncertainty_1/population_explore.txt`
+and
+`RESULTS/organic_emitter/janus_uncertainty_1/fitness_explore.txt`
 
+Further analysis of all the multi-objective optimization results refers to:
+
+https://github.com/Lung-Yi/uncmoo/blob/main/scripts_analyze/plot_multi_objective.ipynb
 
 ## Objective function selection for calculating the different fitness
 ### Single-objective
