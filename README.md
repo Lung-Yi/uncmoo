@@ -45,6 +45,9 @@ tar zxvf RESULTS.tar.gz
 ## Single-objective molecular optimization example (probability improvement)
 ```
 DATASET=docking
+OBJECTIVE="4lde"
+TARGET_NAME="4lde score"
+CUTOFF=-10.001
 DATA_PATH="docking_normalized.csv"
 METHOD=uncertainty
 N_SAMPLE=10000
@@ -52,14 +55,21 @@ FOLD=1
 
 python janus_benchmark.py --benchmark_data $DATASET \
                           --fitness_method $METHOD --n_sample $N_SAMPLE \
-                          --result_path RESULTS/${DATASET}_4lde/janus_${METHOD}_${FOLD} \
+                          --result_path RESULTS/${DATASET}_${OBJECTIVE}/janus_${METHOD}_${FOLD} \
                           --start_smiles_path Tartarus/datasets/$DATA_PATH \
                           --surrogate_model_path chemprop_unc/save_models/$DATASET/evidential/fold_0/ \
-                          --target_columns "4lde score" \
-                          --target_cutoff -10.001 \
+                          --target_columns $TARGET_NAME \
+                          --target_cutoff CUTOFF \
                           --batch_pred \
-                          --target_objective minimize | tee log_${METHOD}_${DATASET}_4lde_${FOLD}.txt
+                          --target_objective minimize | tee log_${METHOD}_${DATASET}_${OBJECTIVE}_${FOLD}.txt
 ```
+The single-objective molecule design results can then be found in the:
+`RESULTS/docking_4lde/janus_uncertainty_1/population_explore.txt`
+and
+`RESULTS/docking_4lde/janus_uncertainty_1/fitness_explore.txt`
+Further analysis of all the single-objective optimization results refers to:
+https://github.com/Lung-Yi/uncmoo/blob/main/scripts_analyze/analyze_single_objective.ipynb
+
 
 ## Multi-objective molecular optimization example (probability improvement)
 ```
@@ -83,6 +93,7 @@ python janus_benchmark.py --benchmark_data $DATASET \
                           --alphabet_path Tartarus/datasets/$ALPHATBET \
                           --target_objective minimize maximize minimize | tee log_${METHOD}_${DATASET}_${FOLD}.txt
 ```
+
 
 ## Objective function selection for calculating the different fitness
 ### Single-objective
