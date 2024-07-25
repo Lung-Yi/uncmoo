@@ -27,6 +27,59 @@ The datasets used for training Chemporp can be found in Tartarus:
 
 https://github.com/aspuru-guzik-group/Tartarus/tree/main/datasets.
 
+1. Docking (protein ligands): [`train_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/scripts_analyze/analyze_single_objective.ipynb), 
+2. Organic emitter:
+3. Reactivity (reaction substrates): 
+
+## Training surrogate Chemprop models for molecular property predictions.
+1. Docking dataset: 1syh, 4lde and 6y2f scores predictions.
+```
+chemprop_train \
+    --data_path Tartarus/datasets/docking.csv \
+    --split_sizes 0.8 0.1 0.1 --seed 0 --save_smiles_splits \
+    --dataset_type regression \
+    --target_columns "1syh score" "4lde score" "6y2f score" \
+    --save_dir chemprop_unc/save_models/docking/evidential \
+    --warmup_epochs 2 --epochs 40 --max_lr 2e-3 --init_lr 1e-4 \
+    --batch_size 128 --final_lr 1e-5 \
+    --dropout 0 --hidden_size 600 --ffn_num_layers 2 \
+    --save_preds --aggregation sum --activation PReLU --gpu 0 \
+    --loss_function evidential --evidential_regularization 0.2
+```
+
+2. Organic emitter dataset: singlet-triplet gap, oscillator strength and absoulte difference of vertical excitation energy predictions.
+```
+chemprop_train \
+    --data_path Tartarus/datasets/gdb13.csv \
+    --split_sizes 0.8 0.1 0.1 --seed 0 --save_smiles_splits \
+    --dataset_type regression \
+    --target_columns "singlet-triplet value" "oscillator strength" "abs_diff_vee" \
+    --save_dir chemprop_unc/save_models/organic_emitter/ensemble_mve \
+    --warmup_epochs 2 --epochs 40 --max_lr 2e-3 --init_lr 1e-4 \
+    --batch_size 128 --final_lr 1e-5 \
+    --dropout 0 --hidden_size 600 --ffn_num_layers 2 \
+    --save_preds --aggregation sum --activation PReLU --gpu 0 \
+    --loss_function mve --ensemble_size 10
+```
+
+3. Reaction substrate dataset: activation energy and reaction energy predictions.
+```
+chemprop_train \
+    --smiles_columns smiles \
+    --data_path Tartarus/datasets/reactivity.csv \
+    --split_sizes 0.8 0.1 0.1 --seed 0 --save_smiles_splits \
+    --dataset_type regression \
+    --target_columns "activation_energy" "reaction_energy" \
+    --save_dir chemprop_unc/save_models/reactivity/evidential_final \
+    --warmup_epochs 2 --epochs 40 --max_lr 2e-3 --init_lr 1e-4 \
+    --batch_size 128 --final_lr 1e-5 \
+    --dropout 0.4 --hidden_size 600 --ffn_num_layers 2 \
+    --save_preds --aggregation sum --activation PReLU --gpu 0 \
+    --loss_function evidential --evidential_regularization 0.001
+```
+## Analysis of parity plots and uncertainty calibration
+1. Figure 2 (testing data parity plots) in manuscript refers to: [`plot_parity.ipynb`](https://github.com/Lung-Yi/uncmoo/blob/main/plot_parity.ipynb) file.
+2. Figure 3 (testing data uncertainty calibration) in manuscript refers to: [`auce_plot.ipynb`](https://github.com/Lung-Yi/uncmoo/blob/main/auce_plot.ipynb) file.
 
 ## Design benchmarks cutoff values for single- and multi-objective tasks
 | Design Benchmark | Objective | Optimal Value | Top-15% Cutoff for Multi-objective Task |
