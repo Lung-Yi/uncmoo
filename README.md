@@ -16,6 +16,7 @@ This repository requires to operate on **Linux** operating system.
 * matplotlib (version >=3.3.4)
 * numpy (version >= 1.16.4)
 * chemprop  (version >= 1.5.2)
+* pandas (version >= 2.0.3)
 
 ## Installation
 ```
