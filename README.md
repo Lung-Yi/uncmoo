@@ -69,8 +69,7 @@ and
 `RESULTS/docking_4lde/janus_uncertainty_1/fitness_explore.txt`
 
 Further analysis of all the single-objective optimization results refers to:
-
-https://github.com/Lung-Yi/uncmoo/blob/main/scripts_analyze/analyze_single_objective.ipynb
+[`scripts_analyze/analyze_single_objective.ipynb`](https://github.com/Lung-Yi/uncmoo/blob/main/scripts_analyze/analyze_single_objective.ipynb) file.
 
 
 ## Multi-objective molecular optimization example (probability improvement)
@@ -101,8 +100,7 @@ and
 `RESULTS/organic_emitter/janus_uncertainty_1/fitness_explore.txt`
 
 Further analysis of all the multi-objective optimization results refers to:
-
-https://github.com/Lung-Yi/uncmoo/blob/main/scripts_analyze/plot_multi_objective.ipynb
+[`scripts_analyze/plot_multi_objective.ipynb`](https://github.com/Lung-Yi/uncmoo/blob/main/scripts_analyze/plot_multi_objective.ipynb) file.
 
 ## Objective function selection for calculating the different fitness
 ### Single-objective
