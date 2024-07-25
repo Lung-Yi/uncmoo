@@ -23,7 +23,9 @@ This repository requires to operate on **Linux** operating system.
 bash docs/make_env.sh
 ```
 ## Datasets
-The datasets used for training Chemporp can be found in [`Tartarus/datasets`](https://github.com/aspuru-guzik-group/Tartarus/tree/main/datasets).
+The datasets used for training Chemporp can be found in Tartarus:
+
+https://github.com/aspuru-guzik-group/Tartarus/tree/main/datasets.
 
 
 ## Design benchmarks cutoff values for single- and multi-objective tasks
