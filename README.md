@@ -27,6 +27,7 @@ The datasets used for training Chemporp can be found in Tartarus:
 
 https://github.com/aspuru-guzik-group/Tartarus/tree/main/datasets.
 
+The random splitted datasets for model evaluation can be found in:
 1. Docking (protein ligands): [`train_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/docking/evidential/fold_0/train_full.csv), [`val_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/docking/evidential/fold_0/val_full.csv) and [`test_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/docking/evidential/fold_0/test_full.csv).
 2. Organic emitter: [`train_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/organic_emitter/ensemble_mve/fold_0/train_full.csv), [`val_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/organic_emitter/ensemble_mve/fold_0/val_full.csv) and [`test_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/organic_emitter/ensemble_mve/fold_0/test_full.csv).
 3. Reactivity (reaction substrates): [`train_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/reactivity/evidential_final/fold_0/train_full.csv), [`val_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/reactivity/evidential_final/fold_0/val_full.csv) and [`test_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/reactivity/evidential_final/fold_0/test_full.csv).
