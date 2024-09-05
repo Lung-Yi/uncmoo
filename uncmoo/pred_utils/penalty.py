@@ -90,6 +90,11 @@ def docking_filter(smiles):
         return True
     return not apply_filters(smiles)
 
+def dockstring_filter(smiles):
+    mol = Chem.MolFromSmiles(smiles)
+    if mol.GetNumAtoms() > 60:
+        return True
+    return not apply_filters(smiles)
 
 def reactivity_filter(smiles):
     def substructure_preserver(mol):

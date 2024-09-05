@@ -2,6 +2,7 @@
 chemprop_unc/job
 chemprop_unc/save_models/save_models_2_backup
 chemprop_unc/save_models/hce
+chemprop_unc/save_models/dockstring
 job_uncmoo/
 RESULTS/
 test_scripts/
@@ -11,3 +12,6 @@ scripts_analyze/figures_saved/
 plot_iteration_single_objective.ipynb
 plot_iteration_utopian.ipynb
 analyze_multi_objective.ipynb
+dockstring/*
+!dockstring/dockstring-dataset.csv
+log_files/

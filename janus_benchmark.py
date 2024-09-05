@@ -1,5 +1,5 @@
 from uncmoo.pred_utils import DockingScorePredictor, OrganicEmitterScorePredictor, \
-                                SeparateOrganicEmitterScorePredictor, ReactivityPredictor
+                            ReactivityPredictor, DockstringPredictor
 from uncmoo.args import JanusArgs, CommonArgs
 import pandas as pd
 from uncmoo.janus_utils import ModifiedJanus
@@ -32,11 +32,7 @@ if __name__ == "__main__":
         if single_model:
             predict_func = OrganicEmitterScorePredictor
         elif len(args.surrogate_model_path) == len(args.target_columns):
-            predict_func = SeparateOrganicEmitterScorePredictor
             model_path_dict = {}
-            for task, model_path in zip(args.target_columns, args.surrogate_model_path):
-                model_path_dict.update({task: model_path})
-            print(model_path_dict)
         else:
             raise ValueError("Not implement separate multi-task model yet.")
 
@@ -44,6 +40,8 @@ if __name__ == "__main__":
     #     predict_func = HCEPredictor
     elif args.benchmark_dataset == "reactivity":
         predict_func = ReactivityPredictor
+    elif args.benchmark_dataset == "dockstring":
+        predict_func = DockstringPredictor
     else:
         raise ValueError("Not supporting this dataset {}.".format(args.benchmark_dataset))
 
