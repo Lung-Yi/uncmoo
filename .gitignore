@@ -5,6 +5,7 @@ chemprop_unc/save_models/hce
 chemprop_unc/save_models/dockstring
 job_uncmoo/
 RESULTS/
+RESULTS_2023/
 test_scripts/
 scripts/
 scripts_analyze/figures/

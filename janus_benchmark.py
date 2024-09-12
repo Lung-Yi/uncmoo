@@ -157,7 +157,8 @@ if __name__ == "__main__":
     
     top_data = pd.read_csv(args.start_smiles_path)
     if len(target_objective_dict) != 1:
-        top_data = top_data.sort_values(by='normalized_scores', ascending=False)
+        if 'normalized_scores' in list(top_data.columns):
+            top_data = top_data.sort_values(by='normalized_scores', ascending=False)
     else:
         objective = args.target_objective[0]
         if objective == "maximize":
