@@ -17,3 +17,4 @@ dockstring/*
 !dockstring/dockstring-dataset.csv
 log_files/
 figures/
+chemprop_unc/
