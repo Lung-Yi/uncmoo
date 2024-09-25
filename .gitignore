@@ -52,3 +52,4 @@ biased_dataset/
 dockstring/
 wandb_record_reactivity.py
 wandb_record.py
+remove_file.sh
