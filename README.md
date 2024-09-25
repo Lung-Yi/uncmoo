@@ -28,9 +28,9 @@ The datasets used for training Chemporp can be found in Tartarus:
 https://github.com/aspuru-guzik-group/Tartarus/tree/main/datasets.
 
 The random splitted datasets for model evaluation can be found in:
-1. Docking (protein ligands): [`train_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/docking/evidential/fold_0/train_full.csv), [`val_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/docking/evidential/fold_0/val_full.csv) and [`test_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/docking/evidential/fold_0/test_full.csv).
-2. Organic emitter: [`train_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/organic_emitter/ensemble_mve/fold_0/train_full.csv), [`val_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/organic_emitter/ensemble_mve/fold_0/val_full.csv) and [`test_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/organic_emitter/ensemble_mve/fold_0/test_full.csv).
-3. Reactivity (reaction substrates): [`train_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/reactivity/evidential_final/fold_0/train_full.csv), [`val_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/reactivity/evidential_final/fold_0/val_full.csv) and [`test_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/reactivity/evidential_final/fold_0/test_full.csv).
+1. Docking (protein ligands): [`train_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/docking_evidential/fold_0/train_full.csv), [`val_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/docking_evidential/fold_0/val_full.csv) and [`test_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/docking_evidential/fold_0/test_full.csv).
+2. Organic emitter: [`train_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/organic_emitter_ensemble_mve/fold_0/train_full.csv), [`val_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/organic_emitter_ensemble_mve/fold_0/val_full.csv) and [`test_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/organic_emitter_ensemble_mve/fold_0/test_full.csv).
+3. Reactivity (reaction substrates): [`train_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/reactivity_evidential/fold_0/train_full.csv), [`val_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/reactivity_evidential/fold_0/val_full.csv) and [`test_full.csv`](https://github.com/Lung-Yi/uncmoo/blob/main/chemprop_unc/save_models/reactivity_evidential/fold_0/test_full.csv).
 
 ## Training surrogate Chemprop models for molecular property predictions.
 1. Docking dataset: 1syh, 4lde and 6y2f scores predictions.
@@ -40,7 +40,7 @@ chemprop_train \
     --split_sizes 0.8 0.1 0.1 --seed 0 --save_smiles_splits \
     --dataset_type regression \
     --target_columns "1syh score" "4lde score" "6y2f score" \
-    --save_dir chemprop_unc/save_models/docking/evidential \
+    --save_dir chemprop_unc/save_models/docking_evidential \
     --warmup_epochs 2 --epochs 40 --max_lr 2e-3 --init_lr 1e-4 \
     --batch_size 128 --final_lr 1e-5 \
     --dropout 0 --hidden_size 600 --ffn_num_layers 2 \
@@ -55,7 +55,7 @@ chemprop_train \
     --split_sizes 0.8 0.1 0.1 --seed 0 --save_smiles_splits \
     --dataset_type regression \
     --target_columns "singlet-triplet value" "oscillator strength" "abs_diff_vee" \
-    --save_dir chemprop_unc/save_models/organic_emitter/ensemble_mve \
+    --save_dir chemprop_unc/save_models/organic_emitter_ensemble_mve \
     --warmup_epochs 2 --epochs 40 --max_lr 2e-3 --init_lr 1e-4 \
     --batch_size 128 --final_lr 1e-5 \
     --dropout 0 --hidden_size 600 --ffn_num_layers 2 \
@@ -71,11 +71,11 @@ chemprop_train \
     --split_sizes 0.8 0.1 0.1 --seed 0 --save_smiles_splits \
     --dataset_type regression \
     --target_columns "activation_energy" "reaction_energy" \
-    --save_dir chemprop_unc/save_models/reactivity/evidential_final \
-    --warmup_epochs 2 --epochs 40 --max_lr 2e-3 --init_lr 1e-4 \
-    --batch_size 128 --final_lr 1e-5 \
+    --save_dir chemprop_unc/save_models/reactivity_evidential \
+    --warmup_epochs 2 --epochs 40 --max_lr 3e-3 --init_lr 1e-4 \
+    --batch_size 64 --final_lr 1e-5 \
     --dropout 0.4 --hidden_size 600 --ffn_num_layers 2 \
-    --save_preds --aggregation sum --activation PReLU --gpu 0 \
+    --save_preds --aggregation sum --activation LeakyReLU --gpu 0 \
     --loss_function evidential --evidential_regularization 0.001
 ```
 ## Analysis of parity plots and uncertainty calibration
@@ -94,8 +94,8 @@ chemprop_train \
 | | 4LDE score (↓) | -10.0 (-) | - |
 | | 6Y2F score (↓) | -9.8 (-) | - |
 | **Reaction Substrates** | | | |
-| | Activation energy (↓) | 64.9 (kcal/mol) | 87.0 (maximization for multi-objective) |
-| | Reaction energy (↓) | -34.4 (kcal/mol) | -5.46 |
+| | Activation energy (↓) | 72.4 (kcal/mol) | 87.0 (maximization for multi-objective) |
+| | Reaction energy (↓) | -17.0 (kcal/mol) | -5.46 |
 
 ## Download the molecule generation results using different optimization methods for analysis (optional)
 ```
@@ -118,16 +118,16 @@ python janus_benchmark.py --benchmark_data $DATASET \
                           --fitness_method $METHOD --n_sample $N_SAMPLE \
                           --result_path RESULTS/${DATASET}_${OBJECTIVE}/janus_${METHOD}_${FOLD} \
                           --start_smiles_path Tartarus/datasets/$DATA_PATH \
-                          --surrogate_model_path chemprop_unc/save_models/$DATASET/evidential/fold_0/ \
+                          --surrogate_model_path chemprop_unc/save_models/docking_evidential/fold_0/ \
                           --target_columns $TARGET_NAME \
                           --target_cutoff CUTOFF \
                           --batch_pred \
                           --target_objective minimize | tee log_${METHOD}_${DATASET}_${OBJECTIVE}_${FOLD}.txt
 ```
 The single-objective molecule design results can then be found in the:
-`RESULTS/docking_4lde/janus_uncertainty_1/population_explore.txt`
+`RESULTS/docking_4lde_score/janus_uncertainty_1/population_explore.txt`
 and
-`RESULTS/docking_4lde/janus_uncertainty_1/fitness_explore.txt`
+`RESULTS/docking_4lde_score/janus_uncertainty_1/fitness_explore.txt`
 
 Further analysis of all the single-objective optimization results refers to:
 [`scripts_analyze/analyze_single_objective.ipynb`](https://github.com/Lung-Yi/uncmoo/blob/main/scripts_analyze/analyze_single_objective.ipynb) file.
@@ -148,7 +148,7 @@ python janus_benchmark.py --benchmark_data $DATASET \
                           --fitness_method $METHOD --n_sample $N_SAMPLE \
                           --result_path RESULTS/$DATASET/janus_${METHOD}_${FOLD} \
                           --start_smiles_path Tartarus/datasets/$DATA_PATH \
-                          --surrogate_model_path $PARENT/$DATASET/ensemble_mve/$SUFFIX \
+                          --surrogate_model_path $PARENT/organic_emitter_ensemble_mve/$SUFFIX \
                           --target_columns "singlet-triplet value" "oscillator strength" "abs_diff_vee" \
                           --target_cutoff 0.57068 0.1706886 1.615238 \
                           --batch_pred \
