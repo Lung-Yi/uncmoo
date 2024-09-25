@@ -97,16 +97,11 @@ chemprop_train \
 | | Activation energy (↓) | 72.4 (kcal/mol) | 87.0 (maximization for multi-objective) |
 | | Reaction energy (↓) | -17.0 (kcal/mol) | -5.46 |
 
-## Download the molecule generation results using different optimization methods for analysis (optional)
-```
-gdown --id '1tahu9C0EwlvCNOIXjvz96N2e34TGawyV' --output RESULTS.tar.gz
-tar zxvf RESULTS.tar.gz
-```
 
 ## Single-objective molecular optimization example (probability improvement)
 ```
 DATASET=docking
-OBJECTIVE="4lde"
+OBJECTIVE="4lde_score"
 TARGET_NAME="4lde score"
 CUTOFF=-10.001
 DATA_PATH="docking_normalized.csv"
