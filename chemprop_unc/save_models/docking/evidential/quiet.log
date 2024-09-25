@@ -1,9 +1,0 @@
-Fold 0
-Warning: Repeated SMILES found in data, pickle file of split indices cannot distinguish entries and will not be generated.
-Model 0 best validation rmse = 0.823030 on epoch 22
-Model 0 test rmse = 1.622631
-Ensemble test rmse = 0.848296
-1-fold cross validation
-	Seed 0 ==> test rmse = 0.848296
-Overall test rmse = 0.848296 +/- 0.000000
-Elapsed time = 0:35:42

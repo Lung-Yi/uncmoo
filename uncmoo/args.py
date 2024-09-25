@@ -20,6 +20,8 @@ class CommonArgs(Tap):
     """Path to the trained surrogate model. (chemprop uncertainty model is .pt file)"""
     target_columns: List[str] = None
     """The name of targets. They should match with the names saved in the chemprop models."""
+    calibration_factors: List[float] = None
+    """The calibration factors used to divide the uncertainty prediction values. """
     target_cutoff: List[float] = None
     """The cutoffs of the target for calculating CDF."""
     target_objective: List[str] = None

@@ -2,6 +2,7 @@ import numpy as np
 import torch
 import tempfile
 from abc import ABC, abstractmethod
+from typing import List
 
 from chemprop.args import PredictArgs, TrainArgs
 from chemprop.data import get_data_from_smiles, MoleculeDataLoader, MoleculeDataset
@@ -45,7 +46,8 @@ def expected_improvement(predictions, variances, cutoff, minimize=False):
     return ei
 
 class ChempropUncertaintyPredictor(ABC):
-    def __init__(self, model_path, uncertainty_method, batch_size=2048, device="cuda" if torch.cuda.is_available() else "cpu"):
+    def __init__(self, model_path, uncertainty_method, calibration_factors:List[float]=None,
+                 batch_size=2048, device="cuda" if torch.cuda.is_available() else "cpu"):
         self.model_path = model_path
         arguments = [
             '--test_path', None,
@@ -61,6 +63,11 @@ class ChempropUncertaintyPredictor(ABC):
         for model in self.models:
             model = model.to(self.device)
         self.args.num_workers = 0
+        if calibration_factors == None:
+            self.calibration_factors = np.array([1.])
+        else:
+            self.calibration_factors = np.array(calibration_factors)
+        print("calibration:", self.calibration_factors)
 
     def predict(self, smiles_list):
         mean, total_uncertainty = make_predictions(
@@ -72,7 +79,7 @@ class ChempropUncertaintyPredictor(ABC):
                 return_index_dict = False,
                 return_uncertainty = True,
             )
-        return np.array(mean), np.array(total_uncertainty)
+        return np.array(mean), np.array(total_uncertainty) / self.calibration_factors
     
     def load_target_cutoff(self, target_cutoff_dict, target_objective_dict):
         assert set(target_objective_dict.values()).issubset(set(["maximize", "minimize"])) 

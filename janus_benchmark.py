@@ -46,7 +46,6 @@ if __name__ == "__main__":
         raise ValueError("Not supporting this dataset {}.".format(args.benchmark_dataset))
 
     
-    
     if args.fitness_method == 'uncertainty':
         assert len(args.target_columns) == len(args.target_objective) == len(args.target_cutoff)
         target_cutoff_dict = {}
@@ -55,9 +54,9 @@ if __name__ == "__main__":
             target_objective_dict.update({target: objective})
             target_cutoff_dict.update({target: cutoff})
         if single_model:
-            unc_model = predict_func(args.surrogate_model_path[0])
+            unc_model = predict_func(args.surrogate_model_path[0], calibration_factors=args.calibration_factors)
         else:
-            unc_model = predict_func(model_path_dict)
+            unc_model = predict_func(model_path_dict, calibration_factors=args.calibration_factors)
         unc_model.load_target_cutoff(target_cutoff_dict, target_objective_dict)
         # scores = unc_model.calc_overall_fitness(train_data['smiles'])
         if args.batch_pred:
@@ -73,9 +72,9 @@ if __name__ == "__main__":
             target_objective_dict.update({target: objective})
             target_cutoff_dict.update({target: cutoff})
         if single_model:
-            unc_model = predict_func(args.surrogate_model_path[0])
+            unc_model = predict_func(args.surrogate_model_path[0], calibration_factors=args.calibration_factors)
         else:
-            unc_model = predict_func(model_path_dict)
+            unc_model = predict_func(model_path_dict, calibration_factors=args.calibration_factors)
         unc_model.load_target_cutoff(target_cutoff_dict, target_objective_dict)
         if args.batch_pred:
             fitness_function = unc_model.batch_expected_improvement_fitness

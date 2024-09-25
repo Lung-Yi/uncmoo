@@ -1,0 +1,27 @@
+Fold 0
+Warning: Repeated SMILES found in data, pickle file of split indices cannot distinguish entries and will not be generated.
+Model 0 best validation rmse = 0.142698 on epoch 25
+Model 0 test rmse = 0.180752
+Model 1 best validation rmse = 0.143414 on epoch 27
+Model 1 test rmse = 0.180672
+Model 2 best validation rmse = 0.143595 on epoch 25
+Model 2 test rmse = 0.182305
+Model 3 best validation rmse = 0.145610 on epoch 34
+Model 3 test rmse = 0.184073
+Model 4 best validation rmse = 0.143252 on epoch 26
+Model 4 test rmse = 0.182011
+Model 5 best validation rmse = 0.144354 on epoch 32
+Model 5 test rmse = 0.182576
+Model 6 best validation rmse = 0.143421 on epoch 29
+Model 6 test rmse = 0.181175
+Model 7 best validation rmse = 0.143130 on epoch 28
+Model 7 test rmse = 0.182211
+Model 8 best validation rmse = 0.143259 on epoch 27
+Model 8 test rmse = 0.180580
+Model 9 best validation rmse = 0.144360 on epoch 27
+Model 9 test rmse = 0.183145
+Ensemble test rmse = 0.135950
+1-fold cross validation
+	Seed 0 ==> test rmse = 0.135950
+Overall test rmse = 0.135950 +/- 0.000000
+Elapsed time = 11:50:01

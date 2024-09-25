@@ -1,0 +1,3 @@
+Task,Mean rmse,Standard deviation rmse,Fold 0 rmse
+activation_energy,1.464524785580207,0.0,1.464524785580207
+reaction_energy,1.04106072054504,0.0,1.04106072054504

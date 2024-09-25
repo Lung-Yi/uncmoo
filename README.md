@@ -91,8 +91,8 @@ chemprop_train \
 | | Absolute difference of vertical excitation energy (↓) | 0.0573 (eV) | 1.62 |
 | **Protein Ligands** | | | |
 | | 1SYH score (↓) | -10.0 (-) | - |
-| | 6Y2F score (↓) | -10.0 (-) | - |
-| | 4LDE score (↓) | -9.8 (-) | - |
+| | 4LDE score (↓) | -10.0 (-) | - |
+| | 6Y2F score (↓) | -9.8 (-) | - |
 | **Reaction Substrates** | | | |
 | | Activation energy (↓) | 64.9 (kcal/mol) | 87.0 (maximization for multi-objective) |
 | | Reaction energy (↓) | -34.4 (kcal/mol) | -5.46 |
