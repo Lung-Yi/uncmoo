@@ -1,0 +1,10 @@
+Gen:0, C=c1ccc(=Cc2nc(C=c3[nH]ncc3=C)cs2)cc1, 0.0003474065682044225 
+Gen:1, C=c1ccc(=Cc2nc(C=c3[nH]ncc3=C)cs2)cc1, 0.0003474064523573128 
+Gen:2, C=c1ccc(=Cc2nc(C=c3[nH]ncc3=C)cs2)cc1, 0.0003474064523573128 
+Gen:3, C=c1ccc(=Cc2nc(C=c3[nH]ncc3=C)cs2)cc1, 0.00034740672037014697 
+Gen:4, C=CC=CC=Cc1ncc(C=c2[nH]ncc2=C)s1, 0.0006328924747808218 
+Gen:5, C=c1ccc(=Cc2ncc(C=Cc3cn[nH]c3)s2)cc1, 0.033247239841390996 
+Gen:6, C=c1ccc(=Cc2ncc(C=Cc3cn[nH]c3)s2)cc1, 0.03324725508162896 
+Gen:7, C=c1ccc(=Cc2ncc(C=Cc3cn[nH]c3)s2)cc1, 0.03324724545114066 
+Gen:8, C=c1ccc(=Cc2ncc(C=Cc3cn[nH]c3)s2)cc1, 0.03324725934762496 
+Gen:9, C=c1ccc(=Cc2ncc(C=Cc3cn[nH]c3)s2)cc1, 0.033247239841390996 

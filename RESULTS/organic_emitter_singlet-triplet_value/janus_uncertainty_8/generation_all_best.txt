@@ -1,0 +1,10 @@
+Gen:0, Oc1[nH]c2ccc(S)n2c1O, 0.6905484631006924 
+Gen:1, Oc1cc2c(Nc3ccc4[nH]c(O)c(O)n34)ccn2s1, 0.9916905649898398 
+Gen:2, Oc1cc2c(Nc3ccc4[nH]c(O)c(O)n34)ccn2s1, 0.9916905649898398 
+Gen:3, Oc1cc2c(Nc3ccc4[nH]c(O)c(O)n34)ccn2s1, 0.991690619057438 
+Gen:4, Oc1cc2c(Nc3ccc4[nH]c(O)c(O)n34)ccn2s1, 0.9916905649898398 
+Gen:5, Oc1cc2c(Nc3ccc4[nH]c(O)c(O)n34)ncn2s1, 0.9960663188022849 
+Gen:6, Oc1cc2c(Nc3ccc4[nH]c(O)c(O)n34)ncn2s1, 0.9960663188022849 
+Gen:7, Oc1cc2c(Nc3ccc4[nH]c(O)c(O)n34)ncn2s1, 0.9960663188022849 
+Gen:8, Oc1cc2c(Nc3ccc4[nH]c(O)c(O)n34)ncn2s1, 0.9960663188022849 
+Gen:9, Oc1cc2c(Nc3ccc4[nH]c(O)c(O)n34)ncn2s1, 0.9960663188022849 

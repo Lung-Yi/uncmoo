@@ -1,0 +1,10 @@
+Gen:0, O=C(Oc1ccc[nH]1)c1cncs1, 0.0 
+Gen:1, O=C(Oc1ncc[nH]1)c1ccsn1, 0.0 
+Gen:2, O=C(Oc1ccco1)c1ncsn1, 0.0 
+Gen:3, C=CC(=O)Oc1ccc2occn12, 0.0 
+Gen:4, C=CC(=O)Oc1cnc2[nH]ccn12, 0.0 
+Gen:5, C=CC(=O)Oc1cnc2[nH]ccn12, 0.0 
+Gen:6, C=CC(=O)Oc1ncc2[nH]ccn12, 0.0 
+Gen:7, O=C(Oc1ccc[nH]1)c1nncs1, 0.0 
+Gen:8, C=CC(=O)Oc1ccn2cn[nH]c12, 0.0 
+Gen:9, O=C(Oc1ccc[nH]1)c1cccs1, 0.0 

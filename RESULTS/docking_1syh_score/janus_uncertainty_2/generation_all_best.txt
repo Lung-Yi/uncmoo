@@ -1,0 +1,10 @@
+Gen:0, [N-]=[N+]=NC1=CC(=O)c2cccc3c2C1=CC3, 0.9955187905574533 
+Gen:1, [N-]=[N+]=Nc1cc(=C=O)c2cccc3cc1c32, 0.9998614612580691 
+Gen:2, [N-]=[N+]=NC1=C2C3=C(C=C1)C23, 0.9999999999994722 
+Gen:3, [N-]=[C+]NC1=CC=C2C3=C1C23, 0.9999999999999655 
+Gen:4, O=C(O)COc1cc2c3c(c1-2)COC3, 1.0 
+Gen:5, O=C(O)COc1cc2c3c(c1-2)CC3, 1.0 
+Gen:6, O=CCOc1cc2c3c(c1-2)CC3, 1.0 
+Gen:7, OCCOc1cc2c3c(c1-2)CC3, 1.0 
+Gen:8, CC(=O)COc1cc2c3c(c1-2)CC3, 1.0 
+Gen:9, OOCOc1cc2c3c(c1-2)CC3, 1.0 

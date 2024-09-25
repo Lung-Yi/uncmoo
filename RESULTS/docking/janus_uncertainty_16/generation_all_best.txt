@@ -1,0 +1,4 @@
+Gen:0, O=C(c1ccc(O)c(O)c1)c1c(O)cc(O)cc1O, 0.7496886660339555 
+Gen:1, Nc1ccc(C(O)(O)Nc2ccc3oc(=O)[nH]c3c2)cc1, 0.7691495014351943 
+Gen:2, NC1=CC=C(C(O)(O)Nc2ccc3oc(=O)[nH]c3c2)CO1, 0.8307370103755358 
+Gen:3, NC(=O)NC(=O)C(F)C[Ge](=O)O[Ge](=O)C1NC(=O)NC(N)C1F, 0.8918275290675133 

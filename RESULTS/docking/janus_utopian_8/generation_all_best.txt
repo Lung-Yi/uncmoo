@@ -1,0 +1,11 @@
+Gen:0, CC[Sn](C=S)(Sc1nc(O)cc(=O)[nH]1)Sc1nc(O)cc(=O)[nH]1, -1.0914675574675883 
+Gen:1, CC[Sn](C=S)(SC1=NC(O)=CC(CNC(C)C(=O)OO)N1)Sc1nc(O)cc(=O)[nH]1, -1.0472232040077272 
+Gen:2, CC[Sn](C=S)(SC1=NC(O)=CC(NC(C)C(=O)OO)N1)Sc1nc(O)cc(=O)[nH]1, -0.8896410506223108 
+Gen:3, C=C(NC1C=C(O)N=C(S[Sn](C=S)(CC)Sc2nc(O)cc(=O)[nH]2)N1)C(=O)OO, -0.8023495258617359 
+Gen:4, CC[Sn](C=S)(SC1=NC(O)=CC(NN(O)OO)N1)Sc1nc(O)cc(=O)[nH]1, -0.6065722391343278 
+Gen:5, O=c1cc(O)nc(S[Sn](C=S)(CCOO)SC2NC(NNO)C=CCO2)[nH]1, -0.5712750932972249 
+Gen:6, CC[Sn](C=S)(SC1=NC(O)=NC(NCN(O)O)N1)Sc1nc(O)cc(=O)[nH]1, -0.5576421315016132 
+Gen:7, CC[Sn](C=S)(SC1=NC(O)=NC(NN(O)O)N1)Sc1nc(O)cc(=O)[nH]1, -0.5041673489084106 
+Gen:0, O=[N+]([O-])c1cccc([As](Cl)c2cccc([N+](=O)[O-])c2)c1, 0.0 
+Gen:8, CC[Sn](C=S)(SC1=NC(O)=NC(NON(O)O)N1)Sc1nc(O)cc(=O)[nH]1, -0.46318769124856196 
+Gen:9, CC[Sn](C=S)(SC1=NC(O)=NC(NON(O)O)N1)Sc1nc(O)cc(=O)[nH]1, -0.46318769124856196 

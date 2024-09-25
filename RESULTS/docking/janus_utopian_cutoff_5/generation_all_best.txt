@@ -1,0 +1,10 @@
+Gen:0, Nc1nnc2nc(CC(=O)c3ccccc3)c(=O)[nH]n12, 0.0 
+Gen:1, O=C1NC(=O)C(F)C([Ge](=O)OC2(O)NC(=O)NC(=O)C2F)N1, 0.0 
+Gen:2, O=C1C=C(Nc2ccccc2NC2=CC(=O)NC2=O)C(=O)N1, 0.0 
+Gen:3, NC1NC(=O)C(c2cccc(Cn3c(=O)[nH][nH]c3=O)c2)N1, 0.0 
+Gen:4, NNc1ncc(O)c(N(O)Cc2ccc3c(c2)OCO3)n1, 0.0 
+Gen:5, O=C1C=C(Nc2ccccc2NC2=NC(=O)NC2=O)C(=O)N1, 0.0 
+Gen:6, O=C1C=C(NSc2ccccc2NC2=NC(=O)NC2=O)C(=O)N1, 0.0 
+Gen:7, O=c1ncc2ccc(c(Cn3c(=O)[nH][nH]c3=O)c2)c1=O, 0.0 
+Gen:8, NC1NC(=O)C(c2cccc(CN3C(=O)NNC3O)c2)N1, 0.0 
+Gen:9, NC1=C(N(O)Cc2ccc3c(c2)OCO3)C(O)=CNN1, 0.0 

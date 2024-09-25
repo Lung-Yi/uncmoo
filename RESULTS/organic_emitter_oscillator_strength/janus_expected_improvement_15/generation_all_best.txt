@@ -1,0 +1,10 @@
+Gen:0, C=c1ccc(=Cc2nccs2)cc1, 1.8963944566602765e-05 
+Gen:1, C=c1ccc(=Cc2nccs2)cc1, 1.896394405112063e-05 
+Gen:2, C=c1ccc(=Cc2nccs2)cc1, 1.8963944566602765e-05 
+Gen:3, C=c1ccc(=Cc2nccs2)cc1, 1.8963944566602765e-05 
+Gen:4, C=c1ccc(=Cc2nccs2)cc1, 1.8963944566602765e-05 
+Gen:5, C=CC(C=C)=CNc1cnc(C=c2ccc(=C)cc2)s1, 0.0005424641595511634 
+Gen:6, C=CC(C=C)=CNc1cnc(C=c2ccc(=C)cc2)s1, 0.0005424643428949237 
+Gen:7, C=CC(C=C)=Cc1cnc(C=c2ccc(=C)cc2)s1, 0.0023583119119269455 
+Gen:8, C=CC=Cc1cnc(C=c2ccc(=C)cc2)s1, 0.008191614273932828 
+Gen:9, C=CC=Cc1cnc(C=c2ccc(=C)cc2)s1, 0.008191614273932828 

@@ -1,0 +1,10 @@
+Gen:0, NC(N=Cc1ccc2ccccc2c1O)c1ccccc1O, 0.9999901735884869 
+Gen:1, Oc1ccc2ccccc2c1NNNc1ccc2c(c1)CCC2, 1.0 
+Gen:2, Oc1ccc2ccccc2c1NNNc1ccc2c(c1)CCC2, 1.0 
+Gen:3, Oc1cccc2cccc(NNNc3ccc4c(c3)CCC4)c12, 1.0 
+Gen:4, Oc1ccc2ccccc2c1NNNc1ccc2c(c1)CCC2, 1.0 
+Gen:5, Oc1ccc2ccccc2c1NNNc1ccc2c(c1)CCC2, 1.0 
+Gen:6, Oc1ccc2c(c1NNNc1ccc3c(c1)CCC3)CC2, 1.0 
+Gen:7, Cc1ccc2ccccc2c1NNNc1ccc2c(c1)CCC2, 1.0 
+Gen:8, Oc1ccc2ccccc2c1NNNc1ccc2c(c1)C=NC2, 1.0 
+Gen:9, NC1=C(NNNc2c(O)ccc3ccccc23)CCC2=C1CCC2, 1.0 

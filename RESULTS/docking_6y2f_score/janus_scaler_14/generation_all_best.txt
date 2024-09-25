@@ -1,0 +1,10 @@
+Gen:0, CC(C=COCc1c(F)c(F)c(F)c2c1C1(OC2=O)c2ccc(O)c(O)c2Oc2c1ccc(O)c2O)=CCC1=CC=CC=C(O)C1C=O, 5.288203625585978 
+Gen:1, CC(C=COCc1c(F)c(F)c(F)c2c1C1(OC2=O)c2ccc(O)c(O)c2Oc2c1ccc(O)c2O)=CCc1ccccc(O)c1=O, 5.502283494636795 
+Gen:2, O=C1OC2(c3ccc(O)c(O)c3Oc3c2ccc(O)c3O)c2c(OC=CC=CCc3ccccc(O)c3=O)c(F)c(F)c(F)c21, 5.523312956951098 
+Gen:3, O=C1OC2(c3ccc(O)c(O)c3Oc3c2ccc(O)c3O)c2c(OC=CC=CCc3ccccc(O)c3=O)c(F)c(F)c(F)c21, 5.523312956951098 
+Gen:4, O=C1OC2(c3ccc(O)c(O)c3Oc3c2ccc(O)c3O)c2c(OC=CC=CCc3ccccc(O)c3=O)c(F)c(F)c(F)c21, 5.523312956951098 
+Gen:5, O=C1OC2(c3ccc(O)c(O)c3Cc3c2ccc(O)c3O)c2c(C=CC(O)=Cc3c(O)ccccc3=O)c(F)c(F)c(F)c21, 5.733977221821692 
+Gen:6, O=C1OC2(c3ccc(O)c(O)c3Cc3c2ccc(O)c3O)c2c(C=CC(O)=Cc3c(O)ccccc3=O)c(O)c(F)c(F)c21, 5.766364332152499 
+Gen:7, O=C1OC2(c3ccc(O)c(O)c3Cc3c2ccc(O)c3O)c2c(C=CC(=Cc3c(O)ccccc3=O)NO)c(O)c(O)c(F)c21, 6.035563322632334 
+Gen:8, O=C1OC2(c3ccc(O)c(O)c3Cc3c2ccc(O)c3O)c2c(C=CC(=Cc3c(O)ccccc3=O)NO)c(O)c(O)c(F)c21, 6.035563322632334 
+Gen:9, O=C1OC2(c3ccc(O)c(O)c3Cc3c2ccc(O)c3O)c2c(C=CC(=Cc3c(O)ccccc3=O)NO)c(O)c(O)c(F)c21, 6.035563322632334 

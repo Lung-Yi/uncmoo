@@ -1,0 +1,10 @@
+Gen:0, O=C(c1ccc(O)c(O)c1)c1c(O)cc(O)cc1O, 0.7496884706514398 
+Gen:1, O=C(c1ccc(O)c(O)c1)c1c(O)cc(O)cc1O, 0.7496884706514398 
+Gen:2, O=C(O)NNS(=O)(=O)c1cccc(S(=O)(=O)NN=CN(O)O)c1, 0.9993517099809562 
+Gen:3, O=C(NO)NNS(=O)(=O)c1cccc(S(=O)(=O)NN=CN(O)O)c1, 0.9999999999756363 
+Gen:4, O=C(NO)NNS(=O)(=O)c1cccc(S(=O)(=O)NN=CN(O)O)c1, 0.9999999999756363 
+Gen:5, O=C(NO)NNS(=O)(=O)c1cccc(S(=O)(=O)NN=CN(O)O)c1, 0.9999999999756363 
+Gen:6, O=C(NO)NNS(=O)(=O)c1cccc(S(=O)(=O)NN=CN(O)O)c1, 0.9999999999756363 
+Gen:7, O=C(NO)NNS(=O)(=O)c1cccc(S(=O)(=O)NN=CN(O)O)c1, 0.9999999999756363 
+Gen:8, O=C(NO)NNS(=O)(=O)c1cccc(S(=O)(=O)NN=CN(O)O)c1, 0.9999999999756363 
+Gen:9, O=C(NO)NNS(=O)(=O)c1cccc(S(=O)(=O)NN=CN(O)O)c1, 0.9999999999756363 

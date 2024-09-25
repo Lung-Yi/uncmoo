@@ -1,0 +1,10 @@
+Gen:0, Nc1cnc(C=Cc2ccc[nH]2)o1, 5.348156905178467 
+Gen:1, O=CNc1ncc(C=Cc2ccc[nH]2)[nH]1, 6.311738755048936 
+Gen:2, O=CNc1ncc(C=Cc2ccc[nH]2)[nH]1, 6.311738755048936 
+Gen:3, NC(C=O)=CNc1ncc(C=Cc2ccc[nH]2)[nH]1, 6.88254613861425 
+Gen:4, O=CC(O)=CNc1ncc(C=Cc2ccc[nH]2)[nH]1, 7.132907801771729 
+Gen:5, O=CC(O)=CNc1ncc(C=Cc2ccc[nH]2)[nH]1, 7.132907801771729 
+Gen:6, O=CC(O)=CNc1ncc(C=Cc2ccc[nH]2)[nH]1, 7.132907801771729 
+Gen:7, O=CC(O)=CNc1ncc(C=Cc2ccc[nH]2)[nH]1, 7.132907801771729 
+Gen:8, O=CC(O)=CNc1ncc(C=Cc2ccc[nH]2)[nH]1, 7.132908160957664 
+Gen:9, O=CC(O)=CNc1ncc(C=Cc2ccc[nH]2)[nH]1, 7.132907801771729 

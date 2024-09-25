@@ -1,0 +1,10 @@
+Gen:0, OC1c2ccccc2-c2c(F)c(F)c(F)c(F)c21, 0.0 
+Gen:1, Nc1nnc2nc(CC(=O)c3ccccc3)c(=O)[nH]n12, 0.0 
+Gen:2, O=C1C=C(Nc2ccccc2NC2=CC(=O)NC2=O)C(=O)N1, 0.0 
+Gen:3, NNC(=O)c1ccccc1NC1C=C(C(F)(F)F)N=CN1, 0.0 
+Gen:4, O=[N+]([O-])c1ccc2c(c1)C(=NO)c1cc(F)ccc1-2, 0.0 
+Gen:5, O=C(O)c1ccc2c(OO)c3ccccc3cc2c1, 0.0 
+Gen:6, O=C1N=c2cc(C3=C(O)NCC(OO)=C3)c(=O)[nH]c2=N1, 0.0 
+Gen:7, NOc1c2ccccc2c(O)c2cc(C(=O)O)ccc12, 0.0 
+Gen:8, NC(=O)NC(=O)OC=CC(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F, 0.0 
+Gen:9, O=C1C=C(Nc2ccccc2NC2=CC(=O)NC2=O)C(=O)N1, 0.0 

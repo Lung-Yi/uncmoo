@@ -1,0 +1,10 @@
+Gen:0, CC(=Cc1c(CC2CC(C)=C3C4OC(=O)C(C)C4CCC(C)(O)C32)ccc(O)c1O)C1CC(C)(O)CCC2C(C)C(=O)OC12, 0.5096376570088825 
+Gen:1, CC(=Cc1c(CC2CC(CCN=[N+]=[N-])=C3C4OC(C)C(C)C4CCC(C)(O)C32)ccc(O)c1O)C1CC(C)(O)CCC2C(C)C(=O)OC12, 0.5281822591486246 
+Gen:2, CC(=Cc1c(CC2CC(CCN=[N+]=[N-])=C3C4OC(C)C(C)C4CCC(C)(N)C32)ccc(O)c1O)C1CC(C)(O)CCC2C(C)C(=O)OC12, 0.5334959714692186 
+Gen:3, CC[Si](C=C(NC)c1ccccc1O[Si](C=C(N)c1nnc(N)o1)(c1ccccc1)c1ccccc1)(c1ccccc1)c1ccccc1, 0.8111191998597742 
+Gen:4, CC[Si](C=C(NC)c1ccccc1O[Si](CCc1nnc(N)o1)(c1ccccc1)c1ccccc1)(c1ccccc1)c1ccccc1, 0.853402597625624 
+Gen:5, CC[Si](C=C(NC)c1ccccc1O[Si](Cc1nnc(N)o1)(c1ccccc1)c1ccccc1)(c1ccccc1)c1ccccc1, 0.9345653212354352 
+Gen:6, CC[Si](C=C1C=CC=C1)(C=C(NC)c1ccccc1O[Si](Cc1nnc(N)o1)(c1ccccc1)c1ccccc1)c1ccccc1, 0.9776138755778608 
+Gen:7, CC[Si](C=C1C=CC=C1)(C=C(NC)c1ccccc1O[Si](Cc1nnco1)(c1ccccc1)c1ccccc1)c1ccccc1, 0.9888634831454054 
+Gen:8, CC[Si](C=C1C=CC=C1)(C=C(NC)c1ccccc1O[Si](Cc1nnc[nH]1)(c1ccccc1)c1ccccc1)c1ccccc1, 0.9892025197112734 
+Gen:9, CC[Si](C=C1C=CC=C1)(C=C(NC)c1ccccc1O[Si](#Cc1ccccc1)(Cc1nnc[nH]1)c1ccccc1)c1ccccc1, 0.9994461044678847 

@@ -1,0 +1,3 @@
+pip install typed-argument-parser (https://github.com/swansonk14/typed-argument-parser)
+pip install janus-ga
+¤U¸ü seaborn ·|Ãz±¼  conda install -c anaconda seaborn

@@ -1,0 +1,10 @@
+Gen:0, CCC(=O)O[Bi](c1ccccc1)c1ccccc1, 0.0 
+Gen:1, O=C(c1ccc(O)c(O)c1)c1c(O)cc(O)cc1O, 0.0 
+Gen:2, O=C(Cc1cccc2c(=O)cc(-c3ccccc3)oc12)OO, 0.0 
+Gen:3, O=[N+]([O-])c1cccc(O[As](Cl)c2cccc([N+](=O)[O-])c2)c1, 0.0 
+Gen:4, CCC(=O)O[Bi](c1ccccc1)c1ccccc1, 0.0 
+Gen:5, Nc1nnc2n1NC(=O)C(CC(=O)C1=CCC(OO)=C1)C2, 0.0 
+Gen:6, O=C(OO)C1=CNC(n2nnc3c(=O)[nH][nH]c(=O)c32)C=C1, 0.0 
+Gen:7, C=C(C=CO)C(NC)C(=O)NNNNNC(=O)C(F)(F)C(F)C(F)(F)F, 0.0 
+Gen:8, NC1=CCC(c2[nH]c(N[SH](=O)=O)c3oc(=O)oc23)C=C1, 0.0 
+Gen:9, O=C(NNCNC(=O)C(F)(F)C(F)(F)C(F)(F)F)C(F)(F)C(F)C(F)(F)F, 0.0 

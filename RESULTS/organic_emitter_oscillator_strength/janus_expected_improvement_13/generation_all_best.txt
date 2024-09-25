@@ -1,0 +1,10 @@
+Gen:0, C=c1ccc(=Cc2nccs2)cc1, 1.8963944566602765e-05 
+Gen:1, C=CC=Cc1ocnc1OC=c1ccc(=Cc2nccs2)cc1, 0.004362437851635464 
+Gen:2, C=CC=Cc1ocnc1C=c1ccc(=Cc2nccs2)cc1, 0.011789266766220254 
+Gen:3, C=CC=Cc1ocnc1C=c1ccc(=Cc2nccs2)cc1, 0.011789266766220254 
+Gen:4, C=CC=Cc1ocnc1C=c1ccc(=Cc2nccs2)cc1, 0.011789266766220254 
+Gen:5, C=CC=Cc1ocnc1C=c1ccc(=Cc2nccs2)cc1, 0.011789266766220254 
+Gen:6, C=CC=Cc1ocnc1C=c1ccc(=Cc2nccs2)cc1, 0.011789266766220254 
+Gen:7, C=CC=Cc1ocnc1C=c1ccc(=Cc2nccs2)cc1, 0.011789266766220254 
+Gen:8, C=CC=Cc1ocnc1C=c1ccc(=Cc2nccs2)cc1, 0.011789266766220254 
+Gen:9, C=CC=Cc1ocnc1C=c1ccc(=Cc2nccs2)cc1, 0.011789266766220254 

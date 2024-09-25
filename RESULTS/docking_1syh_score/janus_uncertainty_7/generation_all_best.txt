@@ -1,0 +1,10 @@
+Gen:0, O=[N+]([O-])c1ccc2c(c1O)NC(O)C(O)N2, 0.8385773442771906 
+Gen:1, O=[N+]([O-])c1cc(O)c2c(c1O)NC(O)=CN2, 0.8844092394623546 
+Gen:2, O=[N+]([O-])c1cc([N+](=O)[O-])c2c(c1O)C=C2O, 0.9863432744446137 
+Gen:3, O=[N+]([O-])c1cc([N+](=O)[O-])c2c(c1O)C=C2O, 0.9863432744446137 
+Gen:4, O=[N+]([O-])c1c2ccc-2c1C=CO, 0.9999753818776219 
+Gen:5, [O-][O+](O)c1c2ccc-2c1C=CO, 0.9999999663979549 
+Gen:6, Cc1cc2c(C=CO)c([O+]([O-])OO)c1-2, 0.9999999999754876 
+Gen:7, Cc1cc2c(C=NO)c([N+](=O)[O-])c1-2, 1.0 
+Gen:8, Cc1cc2c(C=NO)c([N+](=O)[O-])c1-2, 1.0 
+Gen:9, Cc1cc2c(C=NO)c([N+](=O)[O-])c1-2, 1.0 

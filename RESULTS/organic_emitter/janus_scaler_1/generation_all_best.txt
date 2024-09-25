@@ -1,0 +1,10 @@
+Gen:0, Nc1oc(C=Cc2ccc[nH]2)nc1C=Cc1ccc[nH]c1=O, 7.849766651822343 
+Gen:1, Nc1oc(C=Cc2ccc[nH]2)nc1C=Cc1ccc[nH]c1=O, 7.849766651822343 
+Gen:2, Nc1oc(C=Cc2ccc[nH]2)nc1C=Cc1ccc[nH]c1=O, 7.849766651822343 
+Gen:3, Nc1oc(C=Cc2ccc[nH]2)nc1C=Cc1ccc[nH]c1=O, 7.849766753505031 
+Gen:4, Nc1oc(C=Cc2ccc[nH]2)nc1C=CC=CNC=O, 8.930163056026856 
+Gen:5, Nc1oc(C=Cc2ccc[nH]2)nc1C=CC=CNC=O, 8.930163098023236 
+Gen:6, Nc1oc(C=Cc2ccc[nH]2)nc1C=CC=CNC=O, 8.930163056026856 
+Gen:7, Nc1oc(C=Cc2ccc[nH]2)nc1C=CC=CNC=O, 8.930163056026856 
+Gen:8, C=CC=Cc1cc2[nH]c(C=CN)nc2[nH]1, 9.03613851305464 
+Gen:9, C=CC=Cc1cc2[nH]c(C=CN)nc2[nH]1, 9.03613851305464 

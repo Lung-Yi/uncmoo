@@ -1,0 +1,10 @@
+Gen:0, Cc1ccccc1C(O)=C1Oc2c(ccc(O)c2O)C2(OC(=O)c3c(F)c(F)c(F)c(F)c32)C1Cc1cnc2ncnc(N(C)C)c2n1, 5.349134336398262 
+Gen:1, Cc1ccccc1C(O)=C1Oc2c(ccc(O)c2O)C2(OC(=O)c3c(F)c(F)c(F)c(F)c32)C1Cc1cnc2c(n1)C(C)(C)NC=N2, 5.584551224963056 
+Gen:2, Cc1ccccc1C(O)=C1Oc2c(ccc(NO)c2O)C2(OC(=O)c3c(F)c(F)c(F)c(F)c32)C1Cc1cnc2c(n1)C(C)(C)NC=N2, 5.599791543838789 
+Gen:3, Cc1ccccc1C(O)=C1Oc2c(ccc(NO)c2O)C2(OC(=O)c3c(F)c(F)c(F)c(F)c32)C1Cc1cnc2c(n1)C(C)(C)NC=N2, 5.599791543838789 
+Gen:4, CC1(C)NC=Nc2ncc(CC3C(=C(O)c4ccccc4O)Oc4c(ccc(NO)c4O)C34OC(=O)c3c(F)c(F)c(F)c(F)c34)nc21, 5.733953343157121 
+Gen:5, C=C1C=CC(C(O)=C2Oc3c(ccc(NO)c3O)C3(OC(=O)c4c(F)c(F)c(F)c(F)c43)C2Cc2cnc3c(n2)C(C)(C)NC=N3)=C1O, 5.793082169940884 
+Gen:6, C=C1C=CC(C(O)=C2Oc3c(ccc(NO)c3O)C3(OC(=O)c4c(F)c(F)c(F)c(F)c43)C2Cc2cnc3c(n2)C(C)(C)NC=N3)=C1O, 5.793082169940884 
+Gen:7, C=C1C=CC(C(O)=C2Oc3c(ccc(NO)c3O)C3(OC(=O)c4c(F)c(F)c(F)c(F)c43)C2Cc2cnc3c(n2)C(C)(C)NC=N3)=C1O, 5.793082169940884 
+Gen:8, C=C1C=CC(C(O)=C2Oc3c(ccc(O)c3O)C3(OC(N)c4c(F)c(F)c(F)c(O)c43)C2Cc2cnc3c(n2)C(C)(C)NC=N3)=C1O, 5.83207602918517 
+Gen:9, C=C1C=CC(C(O)=C2Oc3c(ccc(O)c3O)C3(OC(N)c4c(F)c(F)c(F)c(O)c43)C2Cc2cnc3c(n2)C(C)(C)NON3)=C1O, 5.9381474450755825 

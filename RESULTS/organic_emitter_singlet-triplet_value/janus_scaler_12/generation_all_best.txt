@@ -1,0 +1,10 @@
+Gen:0, Oc1[nH]c2ccc(O)n2c1O, 3.0789538315277682 
+Gen:1, Oc1[nH]c2ccc(O)n2c1O, 3.0789538315277682 
+Gen:2, O=c1[nH]c(Nc2ccc3[nH]c(O)c(O)n23)c2sc(O)cn12, 3.2836084148466624 
+Gen:3, O=c1[nH]c(Nc2ccc3[nH]c(O)c(O)n23)c2sc(O)cn12, 3.2836084148466624 
+Gen:4, O=c1[nH]c(Nc2ccc3[nH]c(O)c(O)n23)c2sc(O)cn12, 3.2836084148466624 
+Gen:5, O=c1[nH]c(Nc2ccc3[nH]c(O)c(O)n23)c2sc(O)cn12, 3.2836084148466624 
+Gen:6, O=c1[nH]c(Nc2ccc3[nH]c(O)c(O)n23)c2sc(O)cn12, 3.2836084148466624 
+Gen:7, O=c1[nH]c(Nc2ccc3[nH]c(O)c(O)n23)c2sc(O)cn12, 3.2836084148466624 
+Gen:8, O=c1[nH]c(Nc2ccc3[nH]c(S)c(O)n23)c2sc(O)cn12, 3.4383041867989945 
+Gen:9, O=c1[nH]c(Nc2ccc3[nH]c(S)c(O)n23)c2sc(O)cn12, 3.4383041867989945 
