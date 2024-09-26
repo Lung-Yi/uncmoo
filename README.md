@@ -83,7 +83,7 @@ chemprop_train \
 2. Figure 3 (testing data uncertainty calibration) in manuscript refers to: [`auce_plot.ipynb`](https://github.com/Lung-Yi/uncmoo/blob/main/auce_plot.ipynb) file.
 
 ## Design benchmarks cutoff values for single- and multi-objective tasks
-| Design Benchmark | Objective | Optimal Value | Top-15% Cutoff for Multi-objective Task |
+| Design Benchmark | Objective | Cutoff Value for Single-objective task | Top-15% Cutoff for Multi-objective Task |
 |------------------|-----------|---------------|----------------------------------------|
 | **Organic Emitters** | | | |
 | | Singlet-triplet gap (↓) | 0.00249 (eV) | 0.571 |
