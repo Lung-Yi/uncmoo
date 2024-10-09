@@ -99,22 +99,30 @@ chemprop_train \
 | | Reaction energy (↓) | -17.0 (kcal/mol) | -5.46 |
 
 ## GauacaMol benchmarks cutoff values for single- and multi-objective tasks
-# 1. Single-objective tasks
+### 1. Single-objective tasks
 | Design Benchmark | Objective | Cutoff Value for Single-objective task | 
 |------------------|-----------|----------------------------------------|
-| (1) | Similarity to Aripiprazole (↑) | 0.40 (-) | - |
-| (2) | Similarity to Albuterol (↑) | 0.40 (-) | - |
-| (3) | Similarity to Mestranol (↑) | 0.40 (-) | - |
+| **(1) Aripiprazole Similarity** | Similarity to Aripiprazole (↑) | 0.40 (-) | - |
+| **(2) Albuterol Similarity** | Similarity to Albuterol (↑) | 0.40 (-) | - |
+| **(3) Mestranol Similarity** | Similarity to Mestranol (↑) | 0.40 (-) | - |
 
-# 2. Multi-objective tasks
+### 2. Multi-objective tasks
 | Design Benchmark | Objective | Cutoff value for Multi-objective Task |
 |------------------|-----------|---------------------------------------|
 | **(1) Median molecules 1** | |                                       |
 |                  | Similarity to Tadalafil (↑) | 0.2 (-) |
 |                  | Similarity to Sildenafil (↑) | 0.2 (-) |
-| **(1) Median molecules 2** | |                                       |
+| **(2) Median molecules 2** | |                                       |
 |                  | Similarity to Camphor (↑) | 0.2 (-) |
 |                  | Similarity to Menthol (↑) | 0.2 (-) |
+| **(3) Fexofenadine MPO** | |                                       |
+|                  | Similarity to Fexofenadine (↑) | 0.4 (-) |
+|                  | TPSA (↑) | 90 ($\AA^2$) |
+|                  | logP (↓) | 4 (-) |
+| **(4) Ranolazine MPO** | |                                       |
+|                  | Similarity to Ranolazine (↑) | 0.3 (-) |
+|                  | TPSA (↑) | 95 ($\AA^2$) |
+|                  | logP (↑) | 7 (-) |
 
 
 ## Single-objective molecular optimization example (probability improvement)
