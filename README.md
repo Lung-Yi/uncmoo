@@ -79,6 +79,35 @@ chemprop_train \
     --save_preds --aggregation sum --activation LeakyReLU --gpu 0 \
     --loss_function evidential --evidential_regularization 0.001
 ```
+
+4. GuacaMol dataset: RDKit properties prediction.
+The hyperparamters are differenct for each target, please refer to the paper for the exhausitive list of best hyperparamter (found by grid search).
+```
+DATASET=guacamol
+MODEL=trial_30
+TARGET=similarity_Aripiprazole
+BATCH_SIZE=64
+MAX_LR=3e-3
+DROPOUT=0.15
+EVIDENTIAL_REGULARIZATION=0.005
+ACTIVATION=PReLU
+
+chemprop_train \
+    --smiles_columns "smiles" \
+    --data_path guacamol_benchmark/guacamol_dataset/guacamol_sample_train.csv \
+    --separate_val_path guacamol_benchmark/guacamol_dataset/guacamol_sample_valid.csv \
+    --separate_test_path guacamol_benchmark/guacamol_dataset/guacamol_sample_test.csv \
+    --dataset_type regression \
+    --num_workers 1 \
+    --target_columns $TARGET \
+    --save_dir chemprop_unc/save_models/$DATASET/$TARGET/$MODEL \
+    --warmup_epochs 2 --epochs 40 --max_lr $MAX_LR --init_lr 1e-4 \
+    --batch_size $BATCH_SIZE --final_lr 1e-5 \
+    --dropout $DROPOUT --hidden_size 300 --ffn_num_layers 2 \
+    --save_preds --aggregation sum --activation $ACTIVATION --gpu 0 \
+    --loss_function evidential --evidential_regularization $EVIDENTIAL_REGULARIZATION
+```
+
 ## Analysis of parity plots and uncertainty calibration
 1. Figure 2 (testing data parity plots) in manuscript refers to: [`plot_parity.ipynb`](https://github.com/Lung-Yi/uncmoo/blob/main/plot_parity.ipynb) file.
 2. Figure 3 (testing data uncertainty calibration) in manuscript refers to: [`auce_plot.ipynb`](https://github.com/Lung-Yi/uncmoo/blob/main/auce_plot.ipynb) file.
@@ -110,17 +139,17 @@ chemprop_train \
 | Design Benchmark | Objective | Cutoff value for Multi-objective Task |
 |------------------|-----------|---------------------------------------|
 | **(1) Median molecules 1** | |                                       |
-|                  | Similarity to Tadalafil (↑) | 0.2 (-) |
-|                  | Similarity to Sildenafil (↑) | 0.2 (-) |
+|                  | Similarity to Tadalafil (↑) | 0.20 (-) |
+|                  | Similarity to Sildenafil (↑) | 0.20 (-) |
 | **(2) Median molecules 2** | |                                       |
-|                  | Similarity to Camphor (↑) | 0.2 (-) |
-|                  | Similarity to Menthol (↑) | 0.2 (-) |
+|                  | Similarity to Camphor (↑) | 0.20 (-) |
+|                  | Similarity to Menthol (↑) | 0.20 (-) |
 | **(3) Fexofenadine MPO** | |                                       |
-|                  | Similarity to Fexofenadine (↑) | 0.4 (-) |
+|                  | Similarity to Fexofenadine (↑) | 0.40 (-) |
 |                  | TPSA (↑) | 90 (&Aring;<sup>2</sup>) |
 |                  | logP (↓) | 4 (-) |
 | **(4) Ranolazine MPO** | |                                       |
-|                  | Similarity to Ranolazine (↑) | 0.3 (-) |
+|                  | Similarity to Ranolazine (↑) | 0.30 (-) |
 |                  | TPSA (↑) | 95 (&Aring;<sup>2</sup>) |
 |                  | logP (↑) | 7 (-) |
 
@@ -142,7 +171,7 @@ python janus_benchmark.py --benchmark_data $DATASET \
                           --start_smiles_path Tartarus/datasets/$DATA_PATH \
                           --surrogate_model_path chemprop_unc/save_models/docking_evidential/fold_0/ \
                           --target_columns $TARGET_NAME \
-                          --target_cutoff CUTOFF \
+                          --target_cutoff $CUTOFF \
                           --batch_pred \
                           --target_objective minimize | tee log_${METHOD}_${DATASET}_${OBJECTIVE}_${FOLD}.txt
 ```
@@ -172,7 +201,7 @@ python janus_benchmark.py --benchmark_data $DATASET \
                           --start_smiles_path Tartarus/datasets/$DATA_PATH \
                           --surrogate_model_path $PARENT/organic_emitter_ensemble_mve/$SUFFIX \
                           --target_columns "singlet-triplet value" "oscillator strength" "abs_diff_vee" \
-                          --target_cutoff 0.57068 0.1706886 1.615238 \
+                          --target_cutoff 0.571 0.171 1.62 \
                           --batch_pred \
                           --alphabet_path Tartarus/datasets/$ALPHATBET \
                           --target_objective minimize maximize minimize | tee log_${METHOD}_${DATASET}_${FOLD}.txt
