@@ -7,6 +7,30 @@ chemprop_unc/save_models/*
 !chemprop_unc/save_models/reactivity_evidential/
 !chemprop_unc/save_models/reactivity_evidential/*
 
+!chemprop_unc/save_models/guacamol/
+chemprop_unc/save_models/guacamol/similarity_Aripiprazole/*
+!chemprop_unc/save_models/guacamol/similarity_Aripiprazole/trial_30
+chemprop_unc/save_models/guacamol/similarity_Albuterol/*
+!chemprop_unc/save_models/guacamol/similarity_Albuterol/trial_30
+chemprop_unc/save_models/guacamol/similarity_Mestranol/*
+!chemprop_unc/save_models/guacamol/similarity_Mestranol/trial_30
+chemprop_unc/save_models/guacamol/similarity_Tadalafil/*
+!chemprop_unc/save_models/guacamol/similarity_Tadalafil/trial_30
+chemprop_unc/save_models/guacamol/similarity_Sildenafil/*
+!chemprop_unc/save_models/guacamol/similarity_Sildenafil/trial_30
+chemprop_unc/save_models/guacamol/similarity_Camphor/*
+!chemprop_unc/save_models/guacamol/similarity_Camphor/trial_24
+chemprop_unc/save_models/guacamol/similarity_Menthol/*
+!chemprop_unc/save_models/guacamol/similarity_Menthol/trial_20
+chemprop_unc/save_models/guacamol/similarity_Fexofenadine/*
+!chemprop_unc/save_models/guacamol/similarity_Fexofenadine/trial_24
+chemprop_unc/save_models/guacamol/similarity_Ranolazine/*
+!chemprop_unc/save_models/guacamol/similarity_Ranolazine/trial_19
+chemprop_unc/save_models/guacamol/tpsa/*
+!chemprop_unc/save_models/guacamol/tpsa/trial_24
+chemprop_unc/save_models/guacamol/logP/*
+!chemprop_unc/save_models/guacamol/logP/trial_3/
+
 RESULTS/*
 !RESULTS/docking/
 !RESULTS/docking/*
@@ -35,7 +59,9 @@ RESULTS_*/
 
 test_scripts/
 figures/
-guacamol_benchmark/
+guacamol_benchmark/*
+!guacamol_benchmark/prepare_data.py
+!guacamol_benchmark/guacamol_dataset
 
 scripts/
 scripts_analyze/figures/
