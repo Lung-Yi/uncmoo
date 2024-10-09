@@ -1,0 +1,10 @@
+Gen:0, C[SH](NN=Cc1oc(-c2cccc([N+](=O)[O-])c2)c(-c2cccc([N+](=O)[O-])c2)c1[N+](=O)[O-])Oc1ncnc(N)c1Cl, 4.731335174796305 
+Gen:1, Cc1c(-c2c(-c3cccc([N+](=O)[O-])c3)oc(C=N[S+][SH]Oc3ncnc(N)c3Cl)c2[N+](=O)[O-])cccc1[N+](=O)[O-], 4.844944306479033 
+Gen:2, Cc1c(-c2c(-c3cccc([N+](=O)[O-])c3)oc(NN(C(N)=O)c3cc(N)ccc3Cl)c2[N+](=O)[O-])cccc1[N+](=O)[O-], 5.066107025841634 
+Gen:3, NC(=O)N(Nc1oc(-c2cccc([N+](=O)[O-])c2)c(-c2cccc([N+](=O)[O-])c2Br)c1[N+](=O)[O-])c1cc(N)ccc1Cl, 5.306272757509182 
+Gen:4, [N-]=C=CC(=C(Br)Cc1c(-c2cccc([N+](=O)[O-])c2)oc(NN(C(N)=O)c2cc(N)ccc2Cl)c1[N+](=O)[O-])[N+](=O)[O-], 5.467826549289909 
+Gen:5, [N-]=C=CC([N+](=O)[O-])=[P-](Br)=Cc1c(-c2cccc([N+](=O)[O-])c2)oc(NN(C(N)=O)c2cc(N)ccc2Cl)c1[N+](=O)[O-], 5.918611543499357 
+Gen:6, [N-]=C=CC([N+](=O)[O-])=[P-](Br)=Cc1c(-c2cccc([N+](=O)[O-])c2)oc(NN(C(N)=O)c2[c-]c(N)ccc2Cl)c1[N+](=O)[O-], 6.076975129463425 
+Gen:7, [N-]=C=CC([N+](=O)[O-])=[P-](Br)=Cc1c(-c2cccc([N+](=O)[O-])c2)oc(NN(C(=O)O)c2[c-]c(N)ccc2Cl)c1[N+](=O)[O-], 6.22747237072392 
+Gen:8, [N-]=C=CC([N+](=O)[O-])=[P-](Br)=Cc1c(-c2cccc([N+](=O)[O-])c2)oc(NN(C(=O)O)C2=[C-]C(N)=C=[P-]=C2Cl)c1[N+](=O)[O-], 6.509019197437761 
+Gen:9, [N-]=C=CC([N+](=O)[O-])=[P-](Br)=Cc1c(-c2cccc([N+](=O)[O-])c2)oc(NN(C(=O)O)C2=[C-]C(N)=C=[P-]=C2Cl)c1[N+](=O)[O-], 6.509019922382013 

@@ -1,0 +1,10 @@
+Gen:0, Cc1cccc2c(CN3CCN(S(=O)(=O)c4ccc5c(c4)OCCO5)CC3)cc(=O)oc12, 0.0 
+Gen:1, Cc1cccc2c(CN3CCN(S(=O)(=O)c4ccc5c(c4)OCCO5)CC3)cc(=O)oc12, 0.0 
+Gen:2, Cc1ccc2c(N3CCN(S(=O)(=O)c4ccc5c(c4)OCO5)CC3)cc(=O)oc2c1C, 0.0 
+Gen:3, Cc1cccc2c(CN3CCN(S(=O)(=O)c4ccc5c(c4)OCCO5)CC3)cc(=O)sc12, 0.0 
+Gen:4, Cc1cccc2c(CN3CCN(S(=O)(=O)c4ccc5c(c4)OCCO5)CC3)cc(=O)sc12, 0.0 
+Gen:5, CC1=CC=CCOCOC(=O)C=C1N1CCN(S(=O)(=O)c2ccc3c(c2)OCO3)CC1, 0.0 
+Gen:6, O=c1oc2c(O)c(CN3CCN(S(=O)(=O)c4ccc5c(c4)OCO5)CC3)ccc2[pH]1, 0.0 
+Gen:7, CC=C(C)C(C)C(=O)Oc1c(P)ccc(CN2CCN(S(=O)(=O)c3ccc4c(c3)OCO4)CC2)c1O, 0.0 
+Gen:8, COCC=CC1CC(C)CCCCN(S(=O)(=O)c2ccc3c(c2)OCO3)CCN(C)C(C)=CN(O)OC(=O)N1, 0.0 
+Gen:9, CC=C(C)C(C)C(=O)OC1C=CCC(N2CCN(S(=O)(=O)c3ccc4c(c3)OCO4)CC2)=C1OP, 0.0 

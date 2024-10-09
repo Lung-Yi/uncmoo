@@ -52,6 +52,8 @@ RESULTS/*
 !RESULTS/reactivity_activation_energy/*
 !RESULTS/reactivity_reaction_energy/
 !RESULTS/reactivity_reaction_energy/*
+!RESULTS/guacamol_final/
+!RESULTS/guacamol_final/*
 
 job_uncmoo/
 

@@ -1,0 +1,10 @@
+Gen:0, COC(O)=C(C=CC=Cc1c(-c2cccc([N+](=O)[O-])c2)oc(C=NSc2[c-]ccc(C)c2)c1[N+](=O)[O-])[N+](=O)[O-], 4.3909034757431264 
+Gen:1, [C-]C1=CC(C)=CC#[P-]1SN=Cc1oc(-c2cccc([N+](=O)[O-])c2)c(C=CCCC(=C(O)OC)[N+](=O)[O-])c1[N+](=O)[O-], 4.757840999663604 
+Gen:2, [C-]C1=CC(C)=CC#[P-]1SN=Cc1oc(-c2cccc([N+](=O)[O-])c2)c(C=CCCC(=C(O)O[N-])[N+](=O)[O-])c1[N+](=O)[O-], 5.104414777103111 
+Gen:3, [C-]C1=CC(C)=CC(c2oc(-c3cccc([N+](=O)[O-])c3)c(C=CCCC(=C(O)O[N-])[N+](=O)[O-])c2[N+](=O)[O-])=[P-]1SN=P, 5.5327175811591305 
+Gen:4, [C-]C1=CC(c2oc(-c3cccc([N+](=O)[O-])c3)c(C=CCCC(=C(O)O[N-])[N+](=O)[O-])c2[N+](=O)[O-])=[P-](SN=P)C([C-])=C1, 5.791788770561378 
+Gen:5, [C-]C1=C([C-])C(c2oc(-c3cccc([N+](=O)[O-])c3)c(C=CCCC(=C(O)O[N-])[N+](=O)[O-])c2[N+](=O)[O-])=[P-](SN=P)C=C1, 5.869482645650056 
+Gen:6, [C-]C(C=C=[P-]SN=P)=C([C-])Cc1oc(-c2cccc([N+](=O)[O-])c2)c(C=CCCC(=C(O)O[N-])[N+](=O)[O-])c1[N+](=O)[O-], 5.964197162211031 
+Gen:7, [C-]C(C=C=[P-]SN=P)=C([C-])[S-]c1oc(-c2cccc([N+](=O)[O-])c2)c(C=CCCC(=C(O)O[N-])[N+](=O)[O-])c1[N+](=O)[O-], 6.183981983285872 
+Gen:8, [C-]C([C-]=C=[P-]SN=P)=C([C-])[S-]c1oc(-c2cccc([N+](=O)[O-])c2)c(C=CCCC(=C(O)O[N-])[N+](=O)[O-])c1[N+](=O)[O-], 6.37706458244362 
+Gen:9, [C-]C([C-]=C=[P-]SN=P)=C([C-])[S-]c1oc(-c2cccc([N+](=O)[O-])c2)c(C=CC[C-]C(=C(O)O[N-])[N+](=O)[O-])c1[N+](=O)[O-], 6.495541915539086 

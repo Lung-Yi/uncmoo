@@ -159,7 +159,7 @@ chemprop_train \
 DATASET=docking
 OBJECTIVE="4lde_score"
 TARGET_NAME="4lde score"
-CUTOFF=-10.001
+CUTOFF=-10.0
 DATA_PATH="docking_normalized.csv"
 METHOD=uncertainty
 N_SAMPLE=10000

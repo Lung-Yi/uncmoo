@@ -1,0 +1,10 @@
+Gen:0, CC(C)(Cc1cccc(C(F)(F)F)c1)NCC(O)c1ccc(O)c2c1[C-](O)C2, 0.4765613865642565 
+Gen:1, CC(C)(Cc1cccc(C(N)(F)F)c1)NCC(O)c1ccc(O)c2c1[C-](O)C2, 0.49527022912559227 
+Gen:2, CC(C)(Cc1cccc(C(N)(O)F)c1)NCC(O)c1ccc(O)c2c1[C-](O)C2, 0.5908197549954406 
+Gen:3, CC(C)(Cc1cccc(C(C)(O)F)c1)NCC(O)c1ccc(O)c2c1[N+](O)C2, 0.5981282398472697 
+Gen:4, CC(C)(Cc1cccc(C(C)(O)F)c1)NCC(O)c1ccc(O)cc1CO, 0.6414203487656429 
+Gen:5, CC1(CCc2cccc(C(O)O)c2)NNC(O)c2cccc(O)c2C[C-](O)N1, 0.6995275076438415 
+Gen:6, CC1([C+]Cc2cccc(C(O)O)c2)NNC(O)c2cccc(O)c2C[C-](O)N1, 0.7127367770373744 
+Gen:7, CC1([C+]Cc2cccc(C(O)O)c2)NNC(O)c2cccc(O)c2C[C-](N)N1, 0.7162948665591422 
+Gen:8, CC1([P-]Cc2cccc(C(O)O)c2)NNC(O)c2cccc(O)c2C[C-](N)N1, 0.7373577983528814 
+Gen:9, CC1([P-]Cc2cccc(C(O)O)c2)NNCc2c(O)cccc2C(O)NN1, 0.7423078841368566 

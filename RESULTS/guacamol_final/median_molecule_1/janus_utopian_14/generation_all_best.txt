@@ -1,0 +1,10 @@
+Gen:0, Cc1ccc2c(CN3CCN(S(=O)(=O)c4ccc5c(c4)OCO5)CC3)cc(=O)oc2c1C, 0.0 
+Gen:1, CC(C)OC(C)(CCCN1CCN(S(=O)(=O)c2ccc3c(c2)OCCO3)CC1)C1=C=CCc2ccccc2OC1, 0.0 
+Gen:2, CC(C)OC(C)(CCCN1CCN(S(=O)(=O)c2ccc3c(c2)OCCO3)CC1)C1=C=CCc2ccccc2OC1, 0.0 
+Gen:3, CC(C)OC(C)(CCN1CCN(S(=O)(=O)c2ccc3c(c2)OCCO3)CC1)C1=C=CCc2ccccc2OC1, 0.0 
+Gen:4, CC(C)OC(C)(CCN1CCN(S(=O)(=O)c2ccc3c(c2)OCCO3)CC1)C1=C=CCc2ccccc2OC1, 0.0 
+Gen:5, CC(C)OC(CCN1CCN(S(=O)(=O)c2ccc3c(c2)OCCO3)CC1)C1=C=CCc2ccccc2OC1, 0.0 
+Gen:6, CC(C)OC(C)(CCCN1CCN(S(=O)(=O)c2ccc3c(c2)OCCO3)CC1)C1=CNCc2ccccc2OC1, 0.0 
+Gen:7, CCOC(C)(CCN1CCN(S(=O)(=O)c2ccc3c(c2)OCCO3)CC1)C1=C=CCc2ccccc2OC1, 0.0 
+Gen:8, C=C1COc2cccc(c2)CC=C(CCN2CCN(S(=O)(=O)c3ccc4c(c3)OCCO4)CC2)O1, 0.0 
+Gen:9, CCOc1cccc2c(C)cccc3c(c(=O)oc12)CCN(S(=O)(=O)c1ccc2c(c1)OCPO2)CCC3, 0.0 

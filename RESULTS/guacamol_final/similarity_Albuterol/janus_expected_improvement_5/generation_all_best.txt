@@ -1,0 +1,10 @@
+Gen:0, CNC(C)C(O)C(C)(C)c1ccc(O)c(C(C)(C)C)c1-c1ccc(O)cc1, 0.04101074546780253 
+Gen:1, CC(C)C1(C)CC(CNCc2ccc(O)c(C(C)(C)C)c2-c2ccc(O)cc2O)CCN1, 0.060276756738352304 
+Gen:2, CC(C)C(C)c1ccccc1C(C)(C)NC[C-](N)Cc1ccc(O)c(C(C)(C)C)c1-c1ccc(O)cc1O, 0.07715722521192492 
+Gen:3, CC(C)C(C)c1ccccc1C(C)(C)NCNC[C-]Cc1ccc(O)c(C(C)(C)C)c1-c1ccc(O)cc1O, 0.09728230921176023 
+Gen:4, CC(C)(C)c1ccccc1C(C)(C)NCNC[C-]Cc1ccc(O)c(C(C)(C)C)c1-c1ccc(O)cc1O, 0.10824027338669126 
+Gen:5, CC(C)(C)c1ccccc1C(C)(C)NCNCNCc1ccc(O)c(C(C)(C)C)c1-c1ccc(O)cc1O, 0.13310723842160774 
+Gen:6, CC(C)(C)c1ccccc1C(C)(C)NCNCNCc1ccc(O)c(C(C)(C)C)c1-c1ccc(O)cc1O, 0.13310725236773957 
+Gen:7, CC(C)(C)c1ccccc1C(C)(C)NCNCNCc1ccc(O)c(C(C)(C)S)c1-c1ccc(O)cc1O, 0.14250896742460295 
+Gen:8, CC(C)(C)c1ccccc1C(C)(C)NCNNNCc1ccc(O)c(C(C)(C)C)c1-c1ccc(O)cc1O, 0.15822162910577559 
+Gen:9, CC(C)(C)c1ccccc1C(C)(C)NCNNNCc1ccc(O)c(C(C)(C)C)c1-c1ccc(O)cc1O, 0.15822162910577559 

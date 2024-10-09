@@ -1,0 +1,10 @@
+Gen:0, Cc1ccc2c(CN3CCN(S(=O)(=O)c4ccc5c(c4)OCO5)CC3)cc(=O)oc2c1C, 0.47481019453414874 
+Gen:1, Cc1cccc2c(CCc3cc(F)ccc3CN3CCN(S(=O)(=O)c4ccc5c(c4)OCO5)CC3)cc(=O)oc12, 0.4841809051888354 
+Gen:2, O=c1cc(CCc2cc(F)ccc2CN2CCN(S(=O)(=O)c3ccc4c(c3)OCO4)CC2)c2ccccc2o1, 0.48865693104605434 
+Gen:3, O=c1cc(CCOc2cc(F)ccc2CN2CCN(S(=O)(=O)c3ccc4c(c3)OCO4)CC2)c2ccccc2o1, 0.5007933649329711 
+Gen:4, O=c1cc(CCOc2cc(F)ccc2N2CCN(S(=O)(=O)c3ccc4c(c3)OCO4)CC2)c2ccccc2o1, 0.5029503544283063 
+Gen:5, O=c1oc2ccccc2c(CCOc2cc(F)ccc2N2CCN(S(=O)(=O)c3ccc4c(c3)OCO4)CC2)c1[O+], 0.5063760940131037 
+Gen:6, O=c1oc2ccccc2c(CCOc2cc(F)ccc2N2CCN(S(=O)(=O)c3ccc4c(c3)OCO4)CC2)c1[O+], 0.5063760940131037 
+Gen:7, O=c1oc2ccccc2c(CCOc2cc(F)ccc2N2CCN(S(=O)(=O)c3ccc4c(c3)OCO4)CC2)c1[O+], 0.5063760849640521 
+Gen:8, O=c1oc2ccccc2c(CCOc2cc(F)ccc2N2CCN(S(=O)(=O)c3ccc4c(c3)OCO4)CC2)c1[O+], 0.5063760940131037 
+Gen:9, O=c1oc2ccccc2c(CCOc2cc(F)ccc2N2CCN(S(=O)(=O)c3ccc4c(c3)OCO4)CC2)c1[O+], 0.5063760940131037 
