@@ -62,6 +62,7 @@ figures/
 guacamol_benchmark/*
 !guacamol_benchmark/prepare_data.py
 !guacamol_benchmark/guacamol_dataset
+!guacamol_benchmark/README.md
 
 scripts/
 scripts_analyze/figures/
