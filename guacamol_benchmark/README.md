@@ -3,9 +3,9 @@ The optimization benchmark is referenced in the paper: [`GuacaMol: Benchmarking 
 
 Please download the post-processed SMILES data in the following link [`GuacaMol dataset`](https://figshare.com/projects/GuacaMol/56639):
 ```
-wget https://figshare.com/ndownloader/files/13612760 -O guacamol_v1_train.smiles
-wget https://figshare.com/ndownloader/files/13612766 -O guacamol_v1_valid.smiles
-wget https://figshare.com/ndownloader/files/13612757 -O guacamol_v1_test.smiles
+wget https://figshare.com/ndownloader/files/13612760 -O guacamol_dataset/guacamol_v1_train.smiles
+wget https://figshare.com/ndownloader/files/13612766 -O guacamol_dataset/guacamol_v1_valid.smiles
+wget https://figshare.com/ndownloader/files/13612757 -O guacamol_dataset/guacamol_v1_test.smiles
 ```
 
 And then run the following python script to sample the molecules and calculate the RDKit properties:
