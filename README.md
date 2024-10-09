@@ -1,5 +1,5 @@
 # Uncertainty-Aware Machine Learning Approaches for Robust Molecular Design
-This is a uncertainty-aware molecular design framework benchmarked on the Tartarus platform (https://github.com/aspuru-guzik-group/Tartarus).
+This is a uncertainty-aware molecular design framework benchmarked on the [`Tartarus`](https://github.com/aspuru-guzik-group/Tartarus) and [`GuacaMol`](https://github.com/benevolentAI/guacamol_baselines) platforms.
 
 The manuscript of this repository is in preparation.
 
@@ -83,7 +83,7 @@ chemprop_train \
 1. Figure 2 (testing data parity plots) in manuscript refers to: [`plot_parity.ipynb`](https://github.com/Lung-Yi/uncmoo/blob/main/plot_parity.ipynb) file.
 2. Figure 3 (testing data uncertainty calibration) in manuscript refers to: [`auce_plot.ipynb`](https://github.com/Lung-Yi/uncmoo/blob/main/auce_plot.ipynb) file.
 
-## Design benchmarks cutoff values for single- and multi-objective tasks
+## Tartarus benchmarks cutoff values for single- and multi-objective tasks
 | Design Benchmark | Objective | Cutoff Value for Single-objective task | Top-15% Cutoff for Multi-objective Task |
 |------------------|-----------|---------------|----------------------------------------|
 | **Organic Emitters** | | | |
@@ -97,6 +97,24 @@ chemprop_train \
 | **Reaction Substrates** | | | |
 | | Activation energy (↓) | 72.4 (kcal/mol) | 87.0 (maximization for multi-objective) |
 | | Reaction energy (↓) | -17.0 (kcal/mol) | -5.46 |
+
+## GauacaMol benchmarks cutoff values for single- and multi-objective tasks
+# 1. Single-objective tasks
+| Design Benchmark | Objective | Cutoff Value for Single-objective task | 
+|------------------|-----------|----------------------------------------|
+| (1) | Similarity to Aripiprazole (↑) | 0.40 (-) | - |
+| (2) | Similarity to Albuterol (↑) | 0.40 (-) | - |
+| (3) | Similarity to Mestranol (↑) | 0.40 (-) | - |
+
+# 2. Multi-objective tasks
+| Design Benchmark | Objective | Cutoff value for Multi-objective Task |
+|------------------|-----------|---------------------------------------|
+| **(1) Median molecules 1** | |                                       |
+|                  | Similarity to Tadalafil (↑) | 0.2 (-) |
+|                  | Similarity to Sildenafil (↑) | 0.2 (-) |
+| **(1) Median molecules 2** | |                                       |
+|                  | Similarity to Camphor (↑) | 0.2 (-) |
+|                  | Similarity to Menthol (↑) | 0.2 (-) |
 
 
 ## Single-objective molecular optimization example (probability improvement)
