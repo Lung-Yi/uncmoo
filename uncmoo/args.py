@@ -4,7 +4,9 @@ from tap import Tap
 
 class CommonArgs(Tap):
     """:class:`CommonArgs` contains arguments that are used in both :class:`Janus` and :class:`PredictArgs`."""
-    benchmark_dataset: Literal['docking', 'organic_emitter', 'hce_advanced', 'hce_simple', 'reactivity', 'dockstring']
+    benchmark_dataset: Literal['docking', 'organic_emitter', 'hce_advanced', 'hce_simple', 'reactivity', 'dockstring', 'similarity_Aripiprazole',
+                               'similarity_Albuterol', 'similarity_Mestranol', 'median_molecule_1', 'median_molecule_2', 'mpo_Fexofenadine', 
+                               'mpo_Ranolazine']
     """Benchmark dataset."""
     fitness_method: Literal['uncertainty', 'scalarization', 'scaler', 'utopian', 'hybrid', 'expected_improvement']
     """What method to calculate the fitness."""

@@ -35,6 +35,8 @@ RESULTS_*/
 
 test_scripts/
 figures/
+guacamol_benchmark/
+
 scripts/
 scripts_analyze/figures/
 scripts_analyze/figures_2023/
@@ -53,3 +55,5 @@ dockstring/
 wandb_record_reactivity.py
 wandb_record.py
 remove_file.sh
+
+*.smiles

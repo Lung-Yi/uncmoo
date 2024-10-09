@@ -1,3 +1,3 @@
-from .pred import DockingScorePredictor, OrganicEmitterScorePredictor, ReactivityPredictor, DockstringPredictor
-from .chemprop_base_model import ChempropUncertaintyPredictor
+from .pred import DockingScorePredictor, OrganicEmitterScorePredictor, ReactivityPredictor, DockstringPredictor, SimilarityPredictor, MultiBenchmarkPredictor
+from .chemprop_base_model import ChempropUncertaintyPredictor, MultipleChempropUncertaintyPredictor
 from .penalty import organic_emitter_filter, docking_filter, reactivity_filter, dockstring_filter

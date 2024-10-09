@@ -45,7 +45,7 @@ def expected_improvement(predictions, variances, cutoff, minimize=False):
         ei = np.where(std_devs > 0, ei, 0)  # EI is zero where std_dev is zero
     return ei
 
-class ChempropUncertaintyPredictor(ABC):
+class ChempropUncertaintyPredictor():
     def __init__(self, model_path, uncertainty_method, calibration_factors:List[float]=None,
                  batch_size=2048, device="cuda" if torch.cuda.is_available() else "cpu"):
         self.model_path = model_path
@@ -214,7 +214,6 @@ class ChempropUncertaintyPredictor(ABC):
         fitness = self.calc_scaler_fitness([single_smiles])
         return fitness[0]
     
-    @abstractmethod
     def penalty(self, smiles):
         """All the model inherting this must include the penalty fuinction to penalize the specific SMILES."""
         return 0
@@ -241,6 +240,126 @@ class ChempropUncertaintyPredictor(ABC):
 
     def scaler_fitness(self, smiles):
         return self.single_scaler_fitness(smiles) + self.penalty(smiles)
+    
+    def batch_utopian_distance_fitness(self, smiles_list):
+        return self.calc_utopian_distance_fitness(smiles_list) + self.batch_penalty(smiles_list)
+    
+    def batch_hybrid_fitness(self, smiles_list):
+        return self.calc_hybrid_fitness(smiles_list) + self.batch_penalty(smiles_list)
+
+
+class MultipleChempropUncertaintyPredictor():
+    def __init__(self, model_paths: List[str], uncertainty_methods:List[str], calibration_factors:List[float]=None,
+                 batch_size=2048, device="cuda" if torch.cuda.is_available() else "cpu"):
+        self.model_paths = model_paths
+        self.uncertainty_methods = uncertainty_methods
+        self.models_list = []
+        for model_path, uncertainty_method in zip(self.model_paths, self.uncertainty_methods):
+            # Each model in the models_list can only be single-task model.
+            self.models_list.append(ChempropUncertaintyPredictor(model_path, uncertainty_method, batch_size=batch_size, device=device))
+        
+    def load_cutoffs_objectives(self, cutoffs_list, objectives_list):
+        assert set(objectives_list).issubset(set(["maximize", "minimize"])) 
+        self.cutoffs_list = cutoffs_list
+        self.objectives_list = objectives_list
+        return
+    
+    def load_scalers_objectives(self, scalers_list, objectives_list):
+        assert set(objectives_list).issubset(set(["maximize", "minimize"]))
+        self.scalers_list = scalers_list
+        self.objectives_list = objectives_list
+        return
+    
+    def load_utopians_objectives(self, utopians_list, objectives_list):
+        assert set(objectives_list).issubset(set(["maximize", "minimize"]))
+        self.utopians_list = utopians_list
+        self.objectives_list = objectives_list
+        return
+    
+    def predict(self, smiles_list):
+        means_list = []
+        uncs_list = []
+        for model in self.models_list:
+            mean, total_uncertainty = model.predict(smiles_list)
+            means_list.append(mean)
+            uncs_list.append(total_uncertainty)
+        # post process
+        means = np.hstack(means_list)
+        uncs = np.hstack(uncs_list)
+        return means, uncs
+
+    def calc_probability_improvement_fitness(self, smiles_list):
+        """ Calculate the multi-objective uncertainty-aware fitness. 
+        If the input arguments do not contain all the tasks that chemprop has trained on, run the subset optimization or single-objective."""
+        fitness_list = []
+        preds, variance = self.predict(smiles_list)
+        for ii, (cutoff, objective) in enumerate(zip(self.cutoffs_list, self.objectives_list)):
+            prob_list = []
+            for pred, var in zip(preds[:, ii], variance[:, ii]):
+                cdf = gaussian_cdf(pred, var, cutoff)
+                prob_list.append(cdf)
+            prob = np.array(prob_list)
+            if objective == "maximize":
+                prob = 1 - prob
+            fitness_list.append(prob)
+        return np.array(fitness_list)
+    
+    def calc_overall_fitness(self, smiles_list):
+        """Probability Improvement multi-objective fitness. """
+        multiobjective_fitness = self.calc_probability_improvement_fitness(smiles_list)
+        overall_fitness = np.prod(multiobjective_fitness, axis=0)
+        return overall_fitness
+    
+    def calc_scaler_fitness(self, smiles_list):
+        """ Calculate the scores after normalized scaling. """
+        preds, _ = self.predict(smiles_list)
+        overall_fitness = 0
+        for ii, (mean_std_tuple, objective) in enumerate(zip(self.scalers_list, self.objectives_list)):
+            mean, std = mean_std_tuple
+            if objective == "maximize":
+                overall_fitness += (preds[:, ii] - mean) / std
+            elif objective == "minimize":
+                overall_fitness += (preds[:, ii] - mean) / std * (-1)
+        return overall_fitness
+    
+    def calc_utopian_distance_fitness(self, smiles_list):
+        """ Only used in multi-objective fitness calculation. """
+        preds, _ = self.predict(smiles_list)
+        overall_fitness = 0
+        for ii, (utopians, objective) in enumerate(zip(self.utopians_list, self.objectives_list)):
+            utopian_point, std = utopians
+            if objective == "maximize":
+                fitness = (utopian_point - preds[:, ii]) / std
+                fitness[fitness < 0] = 0
+                overall_fitness += fitness
+            elif objective == "minimize":
+                fitness = (preds[:, ii] - utopian_point) / std
+                fitness[fitness < 0] = 0
+                overall_fitness += fitness
+        return overall_fitness * (-1)
+    
+    def calc_hybrid_fitness(self, smiles_list):
+        """ When the prediction is not reached utopian point, use utopian distance. Otherwise, use scaler fitness. """
+        overall_utopian_fitness = self.calc_utopian_distance_fitness(smiles_list)
+        overall_scaler_fitness = self.calc_scaler_fitness(smiles_list)
+        mask = np.ones(overall_scaler_fitness.shape)
+        mask[np.nonzero(overall_utopian_fitness)[0]] = 0
+        overall_hybrid_fitness = overall_utopian_fitness + mask * overall_scaler_fitness
+        return overall_hybrid_fitness
+    
+    def penalty(self, smiles):
+        """All the model inherting this must include the penalty fuinction to penalize the specific SMILES."""
+        return 0
+
+    def batch_penalty(self, smiles_list):
+        return np.array([self.penalty(smiles) for smiles in smiles_list])
+        
+    def batch_uncertainty_fitness(self, smiles_list):
+        """" Probability improvement. """
+        return self.calc_overall_fitness(smiles_list) + self.batch_penalty(smiles_list)
+
+    def batch_scaler_fitness(self, smiles_list):
+        return self.calc_scaler_fitness(smiles_list) + self.batch_penalty(smiles_list)
     
     def batch_utopian_distance_fitness(self, smiles_list):
         return self.calc_utopian_distance_fitness(smiles_list) + self.batch_penalty(smiles_list)
