@@ -117,11 +117,11 @@ chemprop_train \
 |                  | Similarity to Menthol (↑) | 0.2 (-) |
 | **(3) Fexofenadine MPO** | |                                       |
 |                  | Similarity to Fexofenadine (↑) | 0.4 (-) |
-|                  | TPSA (↑) | 90 ($\AA^2$) |
+|                  | TPSA (↑) | 90 (&Aring;<sup>2</sup>) |
 |                  | logP (↓) | 4 (-) |
 | **(4) Ranolazine MPO** | |                                       |
 |                  | Similarity to Ranolazine (↑) | 0.3 (-) |
-|                  | TPSA (↑) | 95 ($\AA^2$) |
+|                  | TPSA (↑) | 95 (&Aring;<sup>2</sup>) |
 |                  | logP (↑) | 7 (-) |
 
 
