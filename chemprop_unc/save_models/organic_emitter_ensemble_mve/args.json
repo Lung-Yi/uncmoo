@@ -9,7 +9,7 @@
     "atom_descriptors_size": 0,
     "atom_features_size": 0,
     "atom_messages": false,
-    "batch_size": 128,
+    "batch_size": 64,
     "bias": false,
     "bias_solvent": false,
     "bond_feature_scaling": true,
@@ -62,7 +62,7 @@
     "log_frequency": 10,
     "loss_function": "mve",
     "max_data_size": null,
-    "max_lr": 0.002,
+    "max_lr": 0.001,
     "metric": "rmse",
     "metrics": [
         "rmse"
@@ -89,11 +89,11 @@
     "reaction_mode": "reac_diff",
     "reaction_solvent": false,
     "reproducibility": {
-        "command_line": "python /home/lungyi/anaconda3/envs/uncmoo/bin/chemprop_train --data_path Tartarus/datasets/gdb13.csv --split_sizes 0.8 0.1 0.1 --seed 0 --save_smiles_splits --dataset_type regression --target_columns 'singlet-triplet value' 'oscillator strength' abs_diff_vee --save_dir chemprop_unc/save_models/organic_emitter/ensemble_mve --warmup_epochs 2 --epochs 40 --max_lr 2e-3 --init_lr 1e-4 --batch_size 128 --final_lr 1e-5 --dropout 0 --hidden_size 600 --ffn_num_layers 2 --save_preds --aggregation sum --activation PReLU --gpu 0 --loss_function mve --ensemble_size 10",
-        "time": "Fri Oct 13 11:19:24 2023"
+        "command_line": "python /home/lungyi/anaconda3/envs/uncmoo/bin/chemprop_train --data_path Tartarus/datasets/gdb13.csv --split_sizes 0.8 0.1 0.1 --seed 0 --save_smiles_splits --dataset_type regression --target_columns 'singlet-triplet value' 'oscillator strength' abs_diff_vee --save_dir chemprop_unc/save_models/organic_emitter/trial_2 --warmup_epochs 2 --epochs 40 --max_lr 1e-3 --init_lr 1e-4 --batch_size 64 --final_lr 1e-5 --dropout 0 --hidden_size 600 --ffn_num_layers 2 --save_preds --aggregation sum --activation PReLU --gpu 0 --loss_function mve --ensemble_size 10",
+        "time": "Sat Oct 12 03:16:21 2024"
     },
     "resume_experiment": false,
-    "save_dir": "chemprop_unc/save_models/organic_emitter/ensemble_mve",
+    "save_dir": "chemprop_unc/save_models/organic_emitter/trial_2",
     "save_preds": true,
     "save_smiles_splits": true,
     "seed": 0,
