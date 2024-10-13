@@ -118,7 +118,7 @@ chemprop_train \
 | **Organic Emitters** | | | |
 | | Singlet-triplet gap (↓) | 0.00249 (eV) | 0.571 |
 | | Oscillator strength (↑) | 2.97 (-) | 0.171 |
-| | Absolute difference of vertical excitation energy (↓) | 0.0573 (eV) | 1.62 |
+| | Absolute difference of vertical excitation energy (↓) |  | 0.1768 (eV) |
 | **Protein Ligands** | | | |
 | | 1SYH score (↓) | -10.0 (-) | - |
 | | 4LDE score (↓) | -10.0 (-) | - |
