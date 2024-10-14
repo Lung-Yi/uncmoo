@@ -70,10 +70,12 @@ scripts/
 scripts_analyze/figures/
 scripts_analyze/figures_2023/
 scripts_analyze/figures_saved/
+scripts_analyze/plot_umap.ipynb
 plot_iteration_single_objective.ipynb
 plot_iteration_utopian.ipynb
 analyze_multi_objective.ipynb
 reproduce_calculations.ipynb
+train_fingerprint.csv
 
 !dockstring/dockstring-dataset.csv
 log_files/
