@@ -1,0 +1,10 @@
+Gen:0, O=C(O)COc1ccc2c3c1C(=O)CN=C23, 1.0 
+Gen:1, O=C(O)COc1ccc2c3c1C(=O)CN=C23, 1.0 
+Gen:2, O=C(O)Cc1ccc2c3c1C(=O)CN=C23, 1.0 
+Gen:3, O=C1CN=C2c3ccc(CCO)c1c32, 1.0 
+Gen:4, O=C1CN=C2c3cc(CO)cc1c32, 1.0 
+Gen:5, C=CCC1=C2c3c(C)ccc(c32)C1, 1.0 
+Gen:6, COOc1ncc2c3c1C(=O)CN=C23, 1.0 
+Gen:7, O=C(O)Cc1ccc2c3c1C(=O)CN=C23, 1.0 
+Gen:8, O=C1CNc2c3cc(CCOO)c1c2-3, 1.0 
+Gen:9, O=C(O)Cc1ccc2c3c1C(=O)CN=C23, 1.0 
