@@ -87,5 +87,7 @@ wandb_record_reactivity.py
 wandb_record_organic_emitter.py
 wandb_record.py
 remove_file.sh
+REINVENT4/
 
 *.smiles
+*.pyc
