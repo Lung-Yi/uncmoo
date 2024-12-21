@@ -7,7 +7,7 @@ The manuscript of this repository is in preparation.
 <img src="docs/ms_1_overview_a.svg" style="width: 100%; height: auto;">
 
 ## OS Requirements
-This repository is tested on **CentOS Linux 7 (Core)"** operating system. 
+This repository is tested on **CentOS Linux 7 (Core)** operating system. 
 The computations operated on **AMD EPYC 7502P 32-Core Processor** and **Nvidia GeForce RTX 2080 Ti**.
 
 ## Python Dependencies
