@@ -7,7 +7,8 @@ The manuscript of this repository is in preparation.
 <img src="docs/ms_1_overview_a.svg" style="width: 100%; height: auto;">
 
 ## OS Requirements
-This repository requires to operate on **Linux** operating system.
+This repository is tested on **CentOS Linux 7 (Core)"** operating system. 
+The computations operated on **AMD EPYC 7502P 32-Core Processor** and **Nvidia GeForce RTX 2080 Ti**.
 
 ## Python Dependencies
 * Python (version >= 3.8)
@@ -17,6 +18,8 @@ This repository requires to operate on **Linux** operating system.
 * numpy (version >= 1.16.4)
 * chemprop  (version == 1.5.2)
 * pandas (version >= 2.0.3)
+* Tartarus v0.1.0 (https://github.com/aspuru-guzik-group/Tartarus/tree/v0.1.0)
+* guacamol v0.5.3 (https://github.com/BenevolentAI/guacamol/tree/0.5.3)
 
 ## Installation
 ```
