@@ -1,4 +1,4 @@
-# Uncertainty-Aware Machine Learning Approaches for Robust Molecular Design
+# Uncertainty Quantification with Graph Neural Networks for Efficient Molecular Design
 This is a uncertainty-aware molecular design framework benchmarked on the [`Tartarus`](https://github.com/aspuru-guzik-group/Tartarus) and [`GuacaMol`](https://github.com/benevolentAI/guacamol_baselines) platforms.
 
 The manuscript of this repository is in preparation.
