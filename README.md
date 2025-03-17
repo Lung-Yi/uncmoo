@@ -4,7 +4,7 @@ This is a uncertainty-aware molecular design framework benchmarked on the [`Tart
 The manuscript of this repository is in preparation.
 
 <!-- ![alt text](docs/ms_1_overview_a.svg) -->
-<img src="docs/ms_1_overview_a.svg" style="width: 100%; height: auto;">
+<img src="docs/ms_1_overview.svg" style="width: 100%; height: auto;">
 
 ## OS Requirements
 This repository is tested on **CentOS Linux 7 (Core)** operating system. 
